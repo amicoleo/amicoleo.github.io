@@ -1,11 +1,13 @@
 html, body{
 	height: 100%; 
 	width: 100%; 
-        overflow: hidden; 
+    overflow: hidden; 
+    background-color: #F6F7F6; 
+
 }
 
 #container {
-        height: 100%; 
+    height: 100%; 
 	width: 100%; 
 /*
         overflow: hidden; 
@@ -19,14 +21,26 @@ section{
 	/*relative to body*/
 	position: absolute; 
 
-	margin-top: 0;
-	margin-left: 0%; 
+	/*background-color: rgba(255,255,0,1); */
+    z-index: 99; 
+}
 
-	background-color: rgba(255,255,0,1); 
+#background-logo{
+    position: absolute;/*relative to body*/
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    width: 75%; 
+    /*height: 75%; */
+
+    text-align: center; 
+    font-size: 50px; 
+    z-index: 98; 
 }
 
 #viewport-section{
-	margin-left: 0%;
+	margin-left: 0%; 
 }
 
 #right-section{
@@ -40,7 +54,7 @@ section{
 #nav-menu{
 	position: fixed;
 	margin: 20px; 
-        z-index: 100; 
+    z-index: 100; 
 }
 
 
@@ -49,11 +63,11 @@ section{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    width: 80%; 
-    height: 80%; 
-    background-color: #f00; 
+    transform: translateX(-50%) translateY(-45%);
+    -webkit-transform: translateX(-50%) translateY(-45%);
+    width: 75%; 
+    height: 70%; 
+    /*background-color: #f00; */
 }
 .project-container .img-container{
         position: relative;
@@ -68,9 +82,18 @@ section{
         -webkit-transform: translateX(-50%); 
         background-color: #f0f; 
 }
-.project-container .footer{
+.project-container .img-footer{
         height: 10%; 
-        background-color: #00f; 
         text-align: center;
+        /*background-color: #00f; */
 }
 
+.img-nav-element {
+
+}
+.img-nav-element#right{
+}
+
+.img-nav-element#left{
+
+}

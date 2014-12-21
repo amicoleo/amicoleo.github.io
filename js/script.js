@@ -1,16 +1,21 @@
+// Time variable
+var slidingTime = 1500; 
+
+//
 var homeProjectId = 0; 
+var currentProjectImageId = 0; //Sets what image 
 
-
+//
 var bNavigation = false; 
 var currentProjectId = homeProjectId; //Initialize with no project selected
 var projects = [
-        {fileName: "./StonePad.html", hash: "StonePad"}, //[ProjectHTMLFilename, ProjectHash]
-        {fileName: "./MessageBox.html", hash: "MessageBox"},
-        {fileName: "./HackingHouseholds.html", hash: "HackingHouseholds"}
+        {fileName: "./StonePad.html", hash: "StonePad", name: "Stone Pad"}, //[ProjectHTMLFilename, ProjectHash]
+        {fileName: "./MessageBox.html", hash: "MessageBox", name: "Message Box"},
+        {fileName: "./HackingHouseholds.html", hash: "HackingHouseholds", name: "Hacking Households"}
     ]; 
 
 $(function() {
-    setCurrentProjectFromHash(); 
+    setCurrentProjectFromHash();     
     if (currentProjectId-1 > -1){ //There's some project before
     } else {
     }
@@ -43,21 +48,22 @@ function pastProject() {
             })
             .done(function(content) {
                 $( "#left-section" ).html(content);
+                setupImages($( "#left-section" ));
             });
             
             $("#left-section").animate({ //Slide in new project section
                     "marginLeft": "0%"
-                }, 2000, function() {
+                }, slidingTime, function() {
                     // Animation complete.
                     $(this).removeAttr("id"); //Delete right-section id from div
                     $(this).attr("id", "viewport-section"); //Add viewport-section id to div
                     setLocationHash(projects[currentProjectId].hash); //Change url 
-                    bNavigation = false; 
+                    $("#project-name").html(projects[currentProjectId].name)
             });
             
             $("#viewport-section").animate({
                     "marginLeft": "110%"
-                }, 2000, function() {
+                }, slidingTime, function() {
                 $(this).remove();  
              });
         }
@@ -79,21 +85,22 @@ function nextProject() {
 	        })
 	        .done(function(content) {
 	            $( "#right-section" ).html(content);
+                setupImages($( "#right-section" ));
 	        });
 	        
 	        $("#right-section").animate({ //Slide in new project section
 	                "marginLeft": "0%"
-	            }, 2000, function() {
+	            }, slidingTime, function() {
 	                // Animation complete.
-	                $(this).removeAttr("id"); //Delete right-section id from div
-	                $(this).attr("id", "viewport-section"); //Add viewport-section id to div
-	                setLocationHash(projects[currentProjectId].hash); //Change url 
-	               bNavigation = false; 
+	               $(this).removeAttr("id"); //Delete right-section id from div
+	               $(this).attr("id", "viewport-section"); //Add viewport-section id to div
+	               setLocationHash(projects[currentProjectId].hash); //Change url 
+	               $("#project-name").html(projects[currentProjectId].name)
             });
 	        
 	        $("#viewport-section").animate({
 	                "marginLeft": "-110%"
-	            }, 2000, function() {
+	            }, slidingTime, function() {
 	            $(this).remove();  
 	         });
 	    }
@@ -110,7 +117,10 @@ function setLocationHash(str){
 }
 
 window.onhashchange = function(e) {
-    if (!bNavigation){
+    if (bNavigation)
+        bNavigation = false; 
+    else {
+        console.log("Set project from hash"); 
         setCurrentProjectFromHash(); 
     }
 }
@@ -125,6 +135,8 @@ function setCurrentProjectFromHash(){
         })
         .done(function(content) {
             $( "#viewport-section" ).html(content);
+            $("#project-name").html(projects[currentProjectId].name)
+            setupImages($( "#viewport-section" )); 
         });
     }else{
         $.ajax({
@@ -133,8 +145,69 @@ function setCurrentProjectFromHash(){
         })
         .done(function(content) {
             $( "#viewport-section" ).html(content);
+            setupImages($( "#viewport-section" )); 
         });        
         setLocationHash(""); 
     }
 }
 
+//Project functions
+function setupImages(parentDiv){
+     //Initial setup of images (opacity = 1.0 for initial image)
+    currentProjectImageId = 0; 
+    console.log("Images to setup: "+parentDiv.find( ".img-container" ).children().length); 
+    parentDiv.find( ".img-container" ).children().each(function(){
+        if ($(this).attr("id") == currentProjectImageId){
+            $(this).css( "opacity", "1.0" );
+        }else{
+            $(this).css( "opacity", "0.0" );
+        }
+    }); 
+}
+
+function moreInformation(){
+    
+}
+
+function pastImage(){
+
+    if (currentProjectImageId > 0){
+        $("#background-logo").css("opacity", "0.0"); //Set bg logo to transparent before crossfading images
+        $( ".img-container" ).children().each(function(){
+            if ($(this).attr("id") == currentProjectImageId){
+                $(this).animate({ 
+                        "opacity": "0.0"
+                        }, 1000, function() {});
+            }
+            else if ($(this).attr("id") == currentProjectImageId-1){
+                $(this).animate({ 
+                        "opacity": "1.0"
+                        }, 1000, function() {
+                            currentProjectImageId--; 
+                            $("#background-logo").css("opacity", "1.0"); 
+                        });
+            }
+        }); 
+    }
+}
+
+function nextImage(){
+    if (currentProjectImageId < $( ".img-container" ).children().length -1){
+        $("#background-logo").css("opacity", "0.0"); //Set bg logo to transparent before crossfading images
+        $( ".img-container" ).children().each(function(){
+            if ($(this).attr("id") == currentProjectImageId){
+                $(this).animate({ 
+                        "opacity": "0.0"
+                        }, 1000, function() {});
+            }
+            else if ($(this).attr("id") == currentProjectImageId+1){
+                $(this).animate({ 
+                        "opacity": "1.0"
+                        }, 1000, function() {
+                            currentProjectImageId++; 
+                            $("#background-logo").css("opacity", "1.0"); 
+                        });
+            }
+        }); 
+    }
+}
