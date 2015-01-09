@@ -51,12 +51,24 @@ section{
 	margin-left: -110%; 
 }
 
-#nav-menu{
+.nav-menu{
 	position: fixed;
 	margin: 20px; 
     z-index: 100; 
 }
+.nav-menu.collapsed{
+    opacity: 0.0; 
+    visibility: hidden;
+}
 
+.nav-menu.expanded{
+    
+}
+
+.nav-menu#right-side{
+    right: 0; 
+    text-align: right;
+}
 
 /* Project template file */
 .project-container {
@@ -96,6 +108,13 @@ section{
     -webkit-transform: translateX(-50%) translateY(-50%);
     /*background-color: #00f; */
 }
+
+.additional-section .text-container{
+    opacity: 1.0; 
+}
+
+
+
 
 .img-nav-element {
 

@@ -22,11 +22,20 @@
   </head>
   <body>
     
-    <div id="nav-menu">
+    <div class="nav-menu expanded" >
         Orgonomy Productions <br>
         Projects > <span id="project-name">Stone Pad</span> > <span id="info-link" onclick="moreInformation()">More information</span> <br>
         <span class="button-menu" id="back-button-menu" onclick="pastProject()">Previous Project</span> / <span class="button-menu" id="next-button-menu" onclick="nextProject()">Next Project</span>
     </div>
+     <div class="nav-menu collapsed">
+      Orgonomy Productions <br>
+      <span onclick="showProjectsSection()">Projects</span>
+    </div>
+     <div class="nav-menu" id="right-side">
+        <span id="about-link" onclick="showAboutSection()">About</span> <br>
+        <span id="contacts-link" onclick="showContactSection()">Contact</span>
+    </div>
+
     <div id="container">
         <section id="viewport-section">
         </section>

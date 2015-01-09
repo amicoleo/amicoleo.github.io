@@ -7,12 +7,18 @@ var currentProjectImageId = 0; //Sets what image
 
 //
 var bNavigation = false; 
+var bAboutSection = false; 
+var bContactSection = false; 
 var currentProjectId = homeProjectId; //Initialize with no project selected
 var projects = [
         {fileName: "./StonePad.html", hash: "StonePad", name: "Stone Pad"}, //[ProjectHTMLFilename, ProjectHash]
         {fileName: "./MessageBox.html", hash: "MessageBox", name: "Message Box"},
         {fileName: "./HackingHouseholds.html", hash: "HackingHouseholds", name: "Hacking Households"}
     ]; 
+
+var aboutSectionInfo = {fileName: "./about.html", hash: "About", name: "About"}; 
+var contactSectionInfo = {fileName: "./contact.html", hash: "Contact", name: "Contact"}; 
+
 
 $(function() {
     setCurrentProjectFromHash();    
@@ -129,27 +135,65 @@ window.onhashchange = function(e) {
 
 function setCurrentProjectFromHash(){
     currentProjectId = getCurrentProjectIdFromHash(); 
+    if (getLocationHash() == "About"){
+        $.ajax({
+            url: "./about.html",
+            cache: false
+        })
+        .done(function(content) {
+            $( "#viewport-section" ).html(content);
+            bAboutSection = true; 
+            bContactSection = false; 
 
-    if (currentProjectId > -1 && currentProjectId < projects.length){
+            //
+            $(".nav-menu.collapsed").css("opacity", "1.0"); 
+            $(".nav-menu.collapsed").css("visibility", "visible");
+            //Change nav menu - fade out expanded one
+            $(".nav-menu.expanded").css("opacity", "0.0"); 
+            $(".nav-menu.expanded").css("visibility", "hidden"); 
+        });
+    }
+    else if (getLocationHash() == "Contact"){
+
+        $.ajax({
+            url: "./contact.html",
+            cache: false
+        })
+        .done(function(content) {
+            $( "#viewport-section" ).html(content);
+            bContactSection = true; 
+            bAboutSection = false; 
+
+            //
+            $(".nav-menu.collapsed").css("opacity", "1.0"); 
+            $(".nav-menu.collapsed").css("visibility", "visible");
+            //Change nav menu - fade out expanded one
+            $(".nav-menu.expanded").css("opacity", "0.0"); 
+            $(".nav-menu.expanded").css("visibility", "hidden"); 
+        });
+    }
+
+    else{ 
+        if (currentProjectId < 0 && currentProjectId > projects.length-1){
+            currentProjectId = homeProjectId; 
+        }
+
         $.ajax({
             url: projects[currentProjectId].fileName,
             cache: false
         })
         .done(function(content) {
             $( "#viewport-section" ).html(content);
-            $("#project-name").html(projects[currentProjectId].name)
+            $("#project-name").html(projects[currentProjectId].name); 
             setupImages($( "#viewport-section" )); 
+
+             //
+            $(".nav-menu.collapsed").css("opacity", "0.0"); 
+            $(".nav-menu.collapsed").css("visibility", "hidden"); 
+            //Change nav menu - fade out expanded one
+            $(".nav-menu.expanded").css("opacity", "1.0"); 
+            $(".nav-menu.expanded").css("visibility", "visible");
         });
-    }else{
-        $.ajax({
-            url: projects[homeProjectId].fileName,
-            cache: false
-        })
-        .done(function(content) {
-            $( "#viewport-section" ).html(content);
-            setupImages($( "#viewport-section" )); 
-        });        
-        setLocationHash(""); 
     }
 }
 
@@ -236,13 +280,132 @@ function nextImage(){
                         }, 1000, function() {});
             }
             else if ($(this).attr("id") == currentProjectImageId+1){
-                $(this).animate({ 
-                        "opacity": "1.0"
-                        }, 1000, function() {
-                            currentProjectImageId++; 
-                            $("#background-logo").css("opacity", "1.0"); 
-                        });
+                $(this).animate({"opacity": "1.0"}, 1000, 
+                    function() {
+                        currentProjectImageId++; 
+                        $("#background-logo").css("opacity", "1.0"); 
+                    });
             }
         }); 
+    }
+}
+
+function showAdditionalSection(sectionInfo){
+    $("#container").append('<section id="right-section"></section>'); //Add section positioned at the right of viewport
+    
+    //Show menu, so to allow it to fade in. 
+    $(".nav-menu.collapsed").css("visibility", "visible"); 
+
+    $.ajax({
+        url: sectionInfo.fileName,
+        cache: false
+    })
+    .done(function(content) {
+        $( "#right-section" ).html(content);
+    });
+    
+    $("#right-section").animate({ //Slide in new project section
+            "marginLeft": "0%"
+        }, slidingTime, function() {
+            // Animation complete.
+           $(this).removeAttr("id"); //Delete right-section id from div
+           $(this).attr("id", "viewport-section"); //Add viewport-section id to div
+           setLocationHash(sectionInfo.hash); //Change url 
+           //Modify projects nav menu
+    });
+
+    //Change nav menu - fade in collapsed one
+    $(".nav-menu.collapsed").animate({ //Slide in new project section
+            "opacity": "1.0"
+        }, slidingTime, function() {});
+    //Change nav menu - fade out expanded one
+    $(".nav-menu.expanded").animate({ //Slide in new project section
+            "opacity": "0.0"
+        }, slidingTime, function() {
+            $(this).css("visibility", "hidden"); 
+        });
+
+    //Slide out current section
+    $("#viewport-section").animate({
+        "marginLeft": "-110%"
+    }, slidingTime, function() {
+            $(this).remove();  
+    });
+}
+
+
+function showAboutSection(){
+    if (!bNavigation){
+        if (!bAboutSection){
+            bNavigation = true; 
+            bContactSection = false; 
+            bAboutSection = true; 
+            showAdditionalSection(aboutSectionInfo); 
+        }
+    }
+}
+
+
+
+function showContactSection(){
+    if (!bNavigation){
+        if (!bContactSection){
+            bNavigation = true; 
+            bAboutSection = false; 
+            bContactSection = true; 
+            showAdditionalSection(contactSectionInfo); 
+        }
+    }
+}
+
+function showProjectsSection(){
+    if (!bNavigation){
+        bNavigation = true; 
+        if (bAboutSection || bContactSection){
+            bAboutSection = false; 
+            bContactSection = false; 
+
+            $("#container").append('<section id="left-section"></section>'); //Add section positioned at the right of viewport
+
+            //Show menu, so to allow it to fade in. 
+            $(".nav-menu.expanded").css("visibility", "visible"); 
+            
+            $.ajax({
+                url: projects[currentProjectId].fileName,
+                cache: false
+            })
+            .done(function(content) {
+                $( "#left-section" ).html(content);
+                setupImages($( "#left-section" ));
+            });
+            
+            $("#left-section").animate({ //Slide in new project section
+                    "marginLeft": "0%"
+                }, slidingTime, function() {
+                    // Animation complete.
+                    $(this).removeAttr("id"); //Delete right-section id from div
+                    $(this).attr("id", "viewport-section"); //Add viewport-section id to div
+                    setLocationHash(projects[currentProjectId].hash); //Change url 
+                    $("#project-name").html(projects[currentProjectId].name); 
+                    $("#info-link").html("More information");
+            });
+            
+            $("#viewport-section").animate({
+                    "marginLeft": "110%"
+                }, slidingTime, function() {
+                $(this).remove();  
+             });
+
+             //Change nav menu - fade in collapsed one
+            $(".nav-menu.expanded").animate({ //Slide in new project section
+                    "opacity": "1.0"
+                }, slidingTime, function() {});
+            //Change nav menu - fade out expanded one
+            $(".nav-menu.collapsed").animate({ //Slide in new project section
+                    "opacity": "0.0"
+                }, slidingTime, function() {
+                    $(this).css("visibility", "hidden"); 
+                });
+        }
     }
 }
