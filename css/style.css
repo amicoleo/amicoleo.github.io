@@ -3,6 +3,7 @@ html, body{
 	width: 100%; 
     overflow: hidden; 
     background-color: #F6F7F6; 
+    color: #0023E8; 
 
 }
 
@@ -13,6 +14,22 @@ html, body{
         overflow: hidden; 
 */
 }
+
+.disabled{
+    opacity: 0.5; 
+    text-decoration: none; 
+}
+.disabled:hover{
+    opacity: 0.5; 
+    text-decoration: none; 
+}
+a {
+    color: #0023E8; 
+}
+a:hover{
+    color: #0023E8; 
+}
+
 
 section{
 	height: 100%;

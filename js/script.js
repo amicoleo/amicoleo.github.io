@@ -28,6 +28,9 @@ $(function() {
     if (currentProjectId + 1 < projects.length){ //There's some project after                         
     } else {
     }
+
+
+
 });
 
 
@@ -66,6 +69,7 @@ function pastProject() {
                     setLocationHash(projects[currentProjectId].hash); //Change url 
                     $("#project-name").html(projects[currentProjectId].name); 
                     $("#info-link").html("More information");
+                    updateProjectNavButtons(); 
             });
             
             $("#viewport-section").animate({
@@ -104,6 +108,8 @@ function nextProject() {
 	               setLocationHash(projects[currentProjectId].hash); //Change url 
 	               $("#project-name").html(projects[currentProjectId].name); 
                    $("#info-link").html("More information");
+
+                   updateProjectNavButtons(); 
             });
 	        
 	        $("#viewport-section").animate({
@@ -114,6 +120,7 @@ function nextProject() {
 	    }
 	}
 }
+
 
 function getLocationHash(){
 	return window.location.hash.substring(1);
@@ -135,6 +142,7 @@ window.onhashchange = function(e) {
 
 function setCurrentProjectFromHash(){
     currentProjectId = getCurrentProjectIdFromHash(); 
+    updateProjectNavButtons(); 
     if (getLocationHash() == "About"){
         $.ajax({
             url: "./about.html",
@@ -201,7 +209,6 @@ function setCurrentProjectFromHash(){
 function setupImages(parentDiv){
      //Initial setup of images (opacity = 1.0 for initial image)
     currentProjectImageId = 0; 
-    console.log("Images to setup: "+parentDiv.find( ".img-container" ).children().length); 
     parentDiv.find( ".img-container" ).children().each(function(){
         if ($(this).attr("id") == currentProjectImageId){
             $(this).css( "opacity", "1.0" );
@@ -209,7 +216,12 @@ function setupImages(parentDiv){
             $(this).css( "opacity", "0.0" );
         }
     }); 
+
+    updateImgNavButtons(); 
+    
 }
+
+
 
 function moreInformation(){
     $("#background-logo").css("opacity", "0.0"); //Set bg logo to transparent before crossfading images
@@ -263,12 +275,15 @@ function pastImage(){
                         "opacity": "1.0"
                         }, 1000, function() {
                             currentProjectImageId--; 
+                            updateImgNavButtons(); 
+
                             $("#background-logo").css("opacity", "1.0"); 
                         });
             }
         }); 
     }
 }
+
 
 function nextImage(){
     if (currentProjectImageId < $( ".img-container" ).children().length -1){
@@ -283,12 +298,15 @@ function nextImage(){
                 $(this).animate({"opacity": "1.0"}, 1000, 
                     function() {
                         currentProjectImageId++; 
+                        updateImgNavButtons(); 
                         $("#background-logo").css("opacity", "1.0"); 
                     });
             }
         }); 
     }
+   
 }
+
 
 function showAdditionalSection(sectionInfo){
     $("#container").append('<section id="right-section"></section>'); //Add section positioned at the right of viewport
@@ -408,4 +426,41 @@ function showProjectsSection(){
                 });
         }
     }
+}
+
+
+function updateImgNavButtons(){
+    if (currentProjectImageId == 0){
+        disableLink($(".project-container > .img-footer > #left")); 
+    }else{
+        enableLink($(".project-container > .img-footer > #left")); 
+    }
+    if (currentProjectImageId == $( ".img-container" ).children().length -1){
+        disableLink($(".project-container > .img-footer > #right")); 
+    }else{
+        enableLink($(".project-container > .img-footer > #right")); 
+    }
+}
+
+function updateProjectNavButtons(){
+    if (currentProjectId == 0)
+        disableLink($(".nav-menu > #back-button-menu")); 
+    else {
+        enableLink($(".nav-menu > #back-button-menu")); 
+    }
+
+    if (currentProjectId == projects.length -1){
+        disableLink($(".nav-menu > #next-button-menu")); 
+    }else {
+        enableLink($(".nav-menu > #next-button-menu")); 
+    }
+}
+
+function disableLink(linkDiv){
+    if (!linkDiv.hasClass("disabled"))
+        linkDiv.addClass("disabled"); 
+}
+function enableLink(linkDiv){
+    if (linkDiv.hasClass("disabled"))
+        linkDiv.removeClass("disabled"); 
 }
