@@ -1,10 +1,12 @@
+$light-color: #F6F7F6; 
+$dark-color: #0023E8; 
 
 html, body{
 	height: 100%; 
 	width: 100%; 
     overflow: hidden; 
-    background-color: #F6F7F6; 
-    color: #0023E8; 
+    background-color: $light-color; 
+    color: $dark-color; 
 }
 
 #container {
@@ -90,7 +92,7 @@ section{
     transform: translateX(-50%) translateY(-45%);
     width: 75%; 
     height: 70%; 
-    background-color: #fff; 
+    background-color: $light-color;  
 
     .img-container{
         position: relative;
@@ -124,4 +126,7 @@ section{
 .additional-section .text-container{
     opacity: 1.0; 
 }
+
+
+// Scrollbar
 

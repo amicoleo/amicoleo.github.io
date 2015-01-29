@@ -11,9 +11,10 @@ var bAboutSection = false;
 var bContactSection = false; 
 var currentProjectId = homeProjectId; //Initialize with no project selected
 var projects = [
+        {fileName: "../PatchOfSky.html", hash: "PatchOfSky", name: "Patch Of Sky"}, 
         {fileName: "../StonePad.html", hash: "StonePad", name: "Stone Pad"}, //[ProjectHTMLFilename, ProjectHash]
         {fileName: "../MessageBox.html", hash: "MessageBox", name: "Message Box"},
-        {fileName: "../HackingHouseholds.html", hash: "HackingHouseholds", name: "Hacking Households"}
+        {fileName: "../HackingHouseholds.html", hash: "HackingHouseholds", name: "Hacking Households"}, 
     ];
 
 var aboutSectionInfo = {fileName: "../about.html", hash: "About", name: "About"}; 
@@ -430,6 +431,7 @@ function showProjectsSection(){
 
 
 function updateImgNavButtons(){
+
     if (currentProjectImageId == 0){
         disableLink($(".project-container > .img-footer > #left")); 
     }else{
@@ -457,8 +459,10 @@ function updateProjectNavButtons(){
 }
 
 function disableLink(linkDiv){
-    if (!linkDiv.hasClass("disabled"))
+    if (!linkDiv.hasClass("disabled")){
+        console.log("currentProjectImageId:" +currentProjectImageId); 
         linkDiv.addClass("disabled"); 
+    }
 }
 function enableLink(linkDiv){
     if (linkDiv.hasClass("disabled"))
