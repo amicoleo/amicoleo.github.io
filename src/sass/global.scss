@@ -1,18 +1,15 @@
+
 html, body{
 	height: 100%; 
 	width: 100%; 
     overflow: hidden; 
     background-color: #F6F7F6; 
     color: #0023E8; 
-
 }
 
 #container {
     height: 100%; 
 	width: 100%; 
-/*
-        overflow: hidden; 
-*/
 }
 
 .disabled{
@@ -23,14 +20,12 @@ html, body{
     opacity: 0.5; 
     text-decoration: none; 
 }
-a {
+a { 
     color: #0023E8; 
 }
 a:hover{
     color: #0023E8; 
 }
-
-
 section{
 	height: 100%;
 	width: 100%; 
@@ -46,8 +41,8 @@ section{
     position: absolute;/*relative to body*/
     top: 50%;
     left: 50%;
+
     transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translateX(-50%) translateY(-50%);
     width: 75%; 
     /*height: 75%; */
 
@@ -93,52 +88,40 @@ section{
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-45%);
-    -webkit-transform: translateX(-50%) translateY(-45%);
     width: 75%; 
     height: 70%; 
     background-color: #fff; 
-}
-.project-container .img-container{
+
+    .img-container{
         position: relative;
         height: 90%; 
         overflow: hidden;
-}
-.project-container img{
+    }
+
+    img{
         position: absolute;
         height: 100%;  
         left: 50%;
         transform: translateX(-50%); 
-        -webkit-transform: translateX(-50%); 
-}
-.project-container .img-footer{
+    }
+
+    .img-footer{
         height: 10%; 
         text-align: center;
         /*background-color: #00f; */
-}
+    }
 
-.project-container .text-container{
-    position: absolute;
-    left: 50%;
-    top: 50%; 
-    opacity: 0.0; 
-    transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    /*background-color: #00f; */
+    .text-container{
+        position: absolute;
+        left: 50%;
+        top: 50%; 
+        opacity: 0.0; 
+        transform: translateX(-50%) translateY(-50%);
+        /*background-color: #00f; */
+    }
 }
 
 .additional-section .text-container{
     opacity: 1.0; 
 }
 
-
-
-
-.img-nav-element {
-
-}
-.img-nav-element#right{
-}
-
-.img-nav-element#left{
-
-}

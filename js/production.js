@@ -11,13 +11,13 @@ var bAboutSection = false;
 var bContactSection = false; 
 var currentProjectId = homeProjectId; //Initialize with no project selected
 var projects = [
-        {fileName: "./StonePad.html", hash: "StonePad", name: "Stone Pad"}, //[ProjectHTMLFilename, ProjectHash]
-        {fileName: "./MessageBox.html", hash: "MessageBox", name: "Message Box"},
-        {fileName: "./HackingHouseholds.html", hash: "HackingHouseholds", name: "Hacking Households"}
-    ]; 
+        {fileName: "../StonePad.html", hash: "StonePad", name: "Stone Pad"}, //[ProjectHTMLFilename, ProjectHash]
+        {fileName: "../MessageBox.html", hash: "MessageBox", name: "Message Box"},
+        {fileName: "../HackingHouseholds.html", hash: "HackingHouseholds", name: "Hacking Households"}
+    ];
 
-var aboutSectionInfo = {fileName: "./about.html", hash: "About", name: "About"}; 
-var contactSectionInfo = {fileName: "./contact.html", hash: "Contact", name: "Contact"}; 
+var aboutSectionInfo = {fileName: "../about.html", hash: "About", name: "About"}; 
+var contactSectionInfo = {fileName: "../contact.html", hash: "Contact", name: "Contact"}; 
 
 
 $(function() {
@@ -56,7 +56,7 @@ function pastProject() {
                 cache: false
             })
             .done(function(content) {
-                $( "#left-section" ).html(content);
+                $( "#left-section").html(content);
                 setupImages($( "#left-section" ));
             });
             
