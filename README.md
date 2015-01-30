@@ -15,4 +15,5 @@ Tech stuff
 + Reduce margins for text menus on small screens
 + On mobile document is bigger then viewport
 + On desktop I can do that the mouse pointer becomes an arrow
++ On touch devices scroll projects with horizontal touch-scroll
 + When set project from hash, use same animation used for moving between sections

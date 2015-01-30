@@ -22,6 +22,7 @@ var contactSectionInfo = {fileName: "../contact.html", hash: "Contact", name: "C
 
 
 $(function() {
+
     setCurrentProjectFromHash();    
     if (currentProjectId-1 > -1){ //There's some project before
     } else {
@@ -29,9 +30,6 @@ $(function() {
     if (currentProjectId + 1 < projects.length){ //There's some project after                         
     } else {
     }
-
-
-
 });
 
 
@@ -202,6 +200,9 @@ function setCurrentProjectFromHash(){
             //Change nav menu - fade out expanded one
             $(".nav-menu.expanded").css("opacity", "1.0"); 
             $(".nav-menu.expanded").css("visibility", "visible");
+
+            //
+
         });
     }
 }
@@ -236,11 +237,12 @@ function moreInformation(){
         
         $(".img-footer").animate({ "opacity": "0.0"}, 1000, function() {}); 
 
-        $(".text-container").animate({ 
+        $(".text-container-wrapper").animate({ 
                 "opacity": "1.0"
                 }, 1000, function() {
                     $("#background-logo").css("opacity", "1.0"); 
                     $("#info-link").html("Less information"); 
+                    $(".text-container-wrapper").perfectScrollbar(); 
                 }); 
     } else {
         $( ".img-container" ).children().each(function(){
@@ -251,11 +253,12 @@ function moreInformation(){
         
         $(".img-footer").animate({ "opacity": "1.0"}, 1000, function() {}); 
 
-        $(".text-container").animate({ 
+        $(".text-container-wrapper").animate({ 
                 "opacity": "0.0"
                 }, 1000, function() {
                     $("#background-logo").css("opacity", "1.0"); 
                     $("#info-link").html("More information"); 
+
                 }); 
 
     }
@@ -468,3 +471,9 @@ function enableLink(linkDiv){
     if (linkDiv.hasClass("disabled"))
         linkDiv.removeClass("disabled"); 
 }
+
+//
+window.onresize = function(){
+  $(".text-container-wrapper").perfectScrollbar("update");
+}
+
