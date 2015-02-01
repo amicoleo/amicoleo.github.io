@@ -21,7 +21,10 @@ a, a:visited, a:hover, a:active, a:focus{
     color: $dark-color; 
     text-decoration: none; 
 }
-.disabled, .disabled:focus{
+a:hover {
+    text-decoration: underline; 
+}
+.disabled, .disabled:focus, .disabled:hover{
     color: $half-dark-color; 
     text-decoration: none; 
 }
