@@ -2,12 +2,21 @@ TODO
 ============
 + Blank href on links (so that they look touchable) and a link everywhere - OK
 + On touch previous project/next project keeps underline - OK
-+ Scroll projects with arrows and touch scroll
++ Scroll projects with arrows and touch scroll - OK
 
-+ Media queries
-	+ On bg logo size
-	+ On menu text 
-		
++ Responsiveness
+
+	+ Media queries
+		+ On bg logo size
+	+ One more information top 
+	+ Disable horizontal scrolling on "More information"
+
+
+
++ On mobile touched button keeps underlined
++ Allow caching for AJAX on production. Images are heavy.
+
+
 
 + Gif images compression wrong
 
@@ -24,11 +33,6 @@ Tim questions
 Tech stuff
 -------
 
-+ Use fittext.js for the background logotype. 
 
-
-+ Allow caching for AJAX on production. Images are heavy. 
 + Reduce margins for text menus on small screens
-+ On desktop I can do that the mouse pointer becomes an arrow
-+ On touch devices scroll projects with horizontal touch-scroll
 + When set project from hash, use same animation used for moving between sections
