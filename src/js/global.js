@@ -237,6 +237,7 @@ function moreInformation(){
         
         $(".img-footer").animate({ "opacity": "0.0"}, 1000, function() {}); 
 
+        $(".text-container-wrapper").css("visibility", "visible"); 
         $(".text-container-wrapper").animate({ 
                 "opacity": "1.0"
                 }, 1000, function() {
@@ -252,12 +253,12 @@ function moreInformation(){
         });
         
         $(".img-footer").animate({ "opacity": "1.0"}, 1000, function() {}); 
-
         $(".text-container-wrapper").animate({ 
                 "opacity": "0.0"
                 }, 1000, function() {
                     $("#background-logo").css("opacity", "1.0"); 
                     $("#info-link").html("More information"); 
+                    $(".text-container-wrapper").css("visibility", "hidden"); 
 
                 }); 
 
@@ -290,6 +291,7 @@ function pastImage(){
 
 
 function nextImage(){
+    console.log("nextImage"); 
     if (currentProjectImageId < $( ".img-container" ).children().length -1){
         $("#background-logo").css("opacity", "0.0"); //Set bg logo to transparent before crossfading images
         $( ".img-container" ).children().each(function(){
