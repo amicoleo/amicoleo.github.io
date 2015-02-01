@@ -4,25 +4,39 @@ TODO
 + On touch previous project/next project keeps underline - OK
 + Scroll projects with arrows and touch scroll - OK
 
-+ Responsiveness
++ Responsiveness - OK
 
 	+ Media queries
 		+ On bg logo size
 	+ One more information top 
 	+ Disable horizontal scrolling on "More information"
 
++ Disable href on disabled links 
++ Distinguish links from not links
+	+ links are light blue
+	+ underline on hover
 
++ Home is the the about page (here my name, short bio and contacts)
++ Take away contacts
 
 + On mobile touched button keeps underlined
 + Allow caching for AJAX on production. Images are heavy.
-
-
-
 + Gif images compression wrong
 
-+ Add my name in basic menu 
-+ About page
-+ Contact page
++ Credits
+			2014 - <a href="http://fabrica.it/">Fabrica</a><br>
+			
+
+			Client: Dubai HAHAHA 
+
+			2014 - Project commissioned by BIO50, 
+
+			<a href="http://fabrica.it/">Fabrica</a><br>
+			Client: Dubai HAHAHA 
+
+			put team? 
+			put photo credits
+
 
 Tim questions
 --------
@@ -33,6 +47,4 @@ Tim questions
 Tech stuff
 -------
 
-
-+ Reduce margins for text menus on small screens
 + When set project from hash, use same animation used for moving between sections
