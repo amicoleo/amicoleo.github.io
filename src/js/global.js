@@ -39,7 +39,10 @@ function getCurrentProjectIdFromHash(){
             return i; 
         }
     }
-    return homeProjectId; //No project associated with this hash
+    if (getLocationHash() == "")
+        return currentProjectId;
+    if (getLocationHash() != "")
+        return homeProjectId; //No project associated with this hash
 }
 
 function pastProject() {
@@ -131,15 +134,17 @@ function setLocationHash(str){
 }
 
 window.onhashchange = function(e) {
+    console.log("Hash change"); 
     if (bNavigation)
         bNavigation = false; 
     else {
-        console.log("Set project from hash"); 
-        setCurrentProjectFromHash(); 
+        if (getLocationHash() != "")
+            setCurrentProjectFromHash(); 
     }
 }
 
 function setCurrentProjectFromHash(){
+    console.log("set current project from hash"); 
     currentProjectId = getCurrentProjectIdFromHash(); 
     updateProjectNavButtons(); 
     if (getLocationHash() == "About"){
@@ -450,22 +455,23 @@ function updateImgNavButtons(){
 }
 
 function updateProjectNavButtons(){
+    console.log("updateProjectNavButtons"); 
     if (currentProjectId == 0)
-        disableLink($(".nav-menu > #back-button-menu")); 
+        disableLink($(".nav-menu > a.back-button-menu")); 
     else {
-        enableLink($(".nav-menu > #back-button-menu")); 
+        enableLink($(".nav-menu > a.back-button-menu")); 
     }
 
     if (currentProjectId == projects.length -1){
-        disableLink($(".nav-menu > #next-button-menu")); 
+        console.log("disable next project"); 
+        disableLink($(".nav-menu > a.next-button-menu")); 
     }else {
-        enableLink($(".nav-menu > #next-button-menu")); 
+        enableLink($(".nav-menu > a.next-button-menu")); 
     }
 }
 
 function disableLink(linkDiv){
     if (!linkDiv.hasClass("disabled")){
-        console.log("currentProjectImageId:" +currentProjectImageId); 
         linkDiv.addClass("disabled"); 
     }
 }

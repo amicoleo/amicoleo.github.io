@@ -1,15 +1,18 @@
 TODO
 ============
++ Blank href on links (so that they look touchable) and a link wveruwhere
+
++ On touch previous project/next project keeps underline
+
+
 + On mobile document is bigger then viewport
 	+ Media query on bg logo size
 
-+ On touch previous project/next project keeps underline
 + Gif images compression wrong
 
 + Add my name in basic menu 
 + About page
 + Contact page
-+ Blank href on links (so that they look touchable)
 
 Tim questions
 --------

@@ -16,20 +16,16 @@ html, body{
 	width: 100%; 
 }
 
-.disabled{
+
+a, a:visited, a:hover, a:active, a:focus{ 
+    color: $dark-color; 
+    text-decoration: none; 
+}
+.disabled, .disabled:focus{
     color: $half-dark-color; 
     text-decoration: none; 
 }
-.disabled:hover{
-    color: $half-dark-color; 
-    text-decoration: none; 
-}
-a { 
-    color: #0023E8; 
-}
-a:hover{
-    color: #0023E8; 
-}
+
 section{
 	height: 100%;
 	width: 100%; 
