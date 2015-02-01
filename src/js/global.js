@@ -485,3 +485,39 @@ window.onresize = function(){
   $(".text-container-wrapper").perfectScrollbar("update");
 }
 
+
+//On touch scroll
+document.addEventListener("touchmove", handleTouchMove, false);
+document.addEventListener("touchend", handleTouchEnd, false);
+ 
+var bTouchScrolling = false;
+var scrollingStartX;
+function handleTouchMove(event) {
+    event.preventDefault();
+    var touches = event.changedTouches;
+    if (!bTouchScrolling){
+        bTouchScrolling = true;
+        scrollingStartX = touches[0].pageX;
+    }
+}
+ 
+function handleTouchEnd(event) {
+    var touches = event.changedTouches;
+    if (bTouchScrolling){
+        bTouchScrolling = false;
+        if (touches[0].pageX > scrollingStartX)
+            pastProject(); 
+        else
+            nextProject(); 
+    }
+}
+
+//On arrows
+document.addEventListener("keyup", handleKeyUp, false);
+
+function handleKeyUp(event){
+    if (event.keyCode == 37)
+        pastProject(); 
+    else if (event.keyCode == 39)
+        nextProject(); 
+} 

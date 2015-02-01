@@ -1,12 +1,13 @@
 TODO
 ============
-+ Blank href on links (so that they look touchable) and a link wveruwhere
++ Blank href on links (so that they look touchable) and a link everywhere - OK
++ On touch previous project/next project keeps underline - OK
++ Scroll projects with arrows and touch scroll
 
-+ On touch previous project/next project keeps underline
-
-
-+ On mobile document is bigger then viewport
-	+ Media query on bg logo size
++ Media queries
+	+ On bg logo size
+	+ On menu text 
+		
 
 + Gif images compression wrong
 
