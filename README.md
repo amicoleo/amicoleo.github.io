@@ -1,3 +1,8 @@
+Navigation 
+	+ Blank href on links messes with the hash navigation. Need to put dynamic href with javascript 
+
+
+
 TODO
 ============
 + Blank href on links (so that they look touchable) and a link everywhere - OK
@@ -22,6 +27,7 @@ TODO
 + On mobile touched button keeps underlined
 + Allow caching for AJAX on production. Images are heavy.
 + Gif images compression wrong
++ Set color on text highlight
 
 + Credits
 			2014 - <a href="http://fabrica.it/">Fabrica</a><br>
