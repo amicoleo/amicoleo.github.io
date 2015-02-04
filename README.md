@@ -1,5 +1,41 @@
+<<<<<<< Updated upstream
 Navigation 
 	+ Blank href on links messes with the hash navigation. Need to put dynamic href with javascript 
+=======
+Projects
+-------------
++ Message Box? 
++ Patch of Sky
++ Hacking Households (change name to programming objects)
++ Future Governament Services
++ Stone Pad
+
++ Images
+	+ On desktop cursor becomes an arrow
+	+ On touch devices clicking on images will increment the counter
+	+ Put the counter below the image instead of Previous/Next links
+
++ Orgonomy opening 
+
++ Find the font solution (that I sent to Tim already)
+
++ Scrolling bar on the right - no 
+
++ 
+
+
+Tim questions
+--------
++ Links should be different from text. Underline on hover is not enough. Cannot distinguish from other text before hovering around. And impossible to distinguish on touch devices. 
+
++ Possibility for "more information" link. To put a scroll inside there. So it's possible to put a lot of more stuff. 
+
++ Do you like the actual "more information" section? 
+
++ Problem with where to put my name. Idea was that homepage is "about" section. So that my information is there at first.
+
+
+>>>>>>> Stashed changes
 
 
 
@@ -27,7 +63,11 @@ TODO
 + On mobile touched button keeps underlined
 + Allow caching for AJAX on production. Images are heavy.
 + Gif images compression wrong
+<<<<<<< Updated upstream
 + Set color on text highlight
+=======
++ Add back link of project when going to more information
+>>>>>>> Stashed changes
 
 + Credits
 			2014 - <a href="http://fabrica.it/">Fabrica</a><br>
@@ -43,12 +83,6 @@ TODO
 			put team? 
 			put photo credits
 
-
-Tim questions
---------
-+ Links should be different from text. Underline on hover is not enough. Cannot distinguish from other text before hovering around. And impossible to distinguish on touch devices. 
-
-+ Possibility for "more information" link. To put a scroll inside there. So it's possible to put a lot of more stuff. 
 
 Tech stuff
 -------

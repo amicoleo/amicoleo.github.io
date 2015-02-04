@@ -21,16 +21,19 @@ html, body{
 }
 
 
-a, a:visited, a:hover, a:active, a:focus{ 
-    color: $dark-color; 
+a, a:visited, a:active, a:focus{ 
+    color: $half-dark-color; 
     text-decoration: none; 
 }
 a:hover {
     text-decoration: underline; 
+    color: $dark-color;
 }
 .disabled, .disabled:focus, .disabled:hover{
-    color: $half-dark-color; 
-    text-decoration: none; 
+    color: $dark-color; 
+    text-decoration: line-through;
+     
+
 }
 
 section{
@@ -170,6 +173,10 @@ section{
         // Uncomment lines below if content's height is less then wrapper's 
         // top: 50%
         // transform: translateY(-50%);
+
+        // .project-description {
+        //     font-size: 1.2em; 
+        // }
     }
 }
 
