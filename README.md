@@ -1,9 +1,14 @@
-<<<<<<< Updated upstream
+Tech stuff
+-------
+
++ When set project from hash, use same animation used for moving between sections
++ SetProjectFromHash makes load the project html twice
++ With ghostery and adblocks pages with youtube and vimeo are slowed down (a lot)
+
+
 Navigation 
 	+ Blank href on links messes with the hash navigation. Need to put dynamic href with javascript 
-=======
 Projects
--------------
 + Message Box? 
 + Patch of Sky
 + Hacking Households (change name to programming objects)
@@ -35,7 +40,6 @@ Tim questions
 + Problem with where to put my name. Idea was that homepage is "about" section. So that my information is there at first.
 
 
->>>>>>> Stashed changes
 
 
 
@@ -63,11 +67,8 @@ TODO
 + On mobile touched button keeps underlined
 + Allow caching for AJAX on production. Images are heavy.
 + Gif images compression wrong
-<<<<<<< Updated upstream
 + Set color on text highlight
-=======
 + Add back link of project when going to more information
->>>>>>> Stashed changes
 
 + Credits
 			2014 - <a href="http://fabrica.it/">Fabrica</a><br>
@@ -84,7 +85,5 @@ TODO
 			put photo credits
 
 
-Tech stuff
--------
 
-+ When set project from hash, use same animation used for moving between sections
+
