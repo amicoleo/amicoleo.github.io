@@ -14,7 +14,7 @@ var projects = [
         {fileName: "../PatchOfSky.html", hash: "PatchOfSky", name: "Patch Of Sky"}, 
         {fileName: "../StonePad.html", hash: "StonePad", name: "Stone Pad"}, //[ProjectHTMLFilename, ProjectHash]
         {fileName: "../MessageBox.html", hash: "MessageBox", name: "Message Box"},
-        {fileName: "../HackingHouseholds.html", hash: "HackingHouseholds", name: "Hacking Households"}, 
+        {fileName: "../ProgrammingObjects.html", hash: "ProgrammingObjects", name: "Programming Objects"}, 
     ];
 
 var aboutSectionInfo = {fileName: "../about.html", hash: "About", name: "About"}; 
