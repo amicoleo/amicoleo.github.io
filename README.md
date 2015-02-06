@@ -1,3 +1,24 @@
+Rewriting js 
+----------
+
+Projects and additional sections
+1. Links set hash (no more onclick="jsFunction")
+2. js intercept hash change and slides in new content
+3. All links that goes nowhere have put the current hash as href (so page remains the same, and no hash change function is triggered) 
+	+ Images link
+	+ More information link
+
+
+Style notes
+------
+
++ Try avoid specify event handler in markup (like onclick). Better use jQuery on (see http://stackoverflow.com/questions/15143610/alternative-to-passing-data-in-onclick)
+
++ No more id=0, id=1 for images. Id should be univocal
+
+
+
+
 Tech stuff
 -------
 
