@@ -223,9 +223,7 @@ function setupImages(parentDiv){
             $(this).css( "opacity", "0.0" );
         }
     }); 
-
     updateImgNavButtons(); 
-    
 }
 
 
@@ -267,7 +265,7 @@ function moreInformation(){
 
                 }); 
 
-    }
+        }
 }
 
 function pastImage(){
@@ -315,7 +313,6 @@ function nextImage(){
             }
         }); 
     }
-   
 }
 
 

@@ -1,18 +1,62 @@
-Rewriting js 
-----------
+Tim questions
+-------------
++ Titles of sections (I'd take away Overview, and Information seems reduntant, since it's the name of the current section anyway)
 
-Projects and additional sections
-1. Links set hash (no more onclick="jsFunction")
-2. js intercept hash change and slides in new content
-3. All links that goes nowhere have put the current hash as href (so page remains the same, and no hash change function is triggered) 
-	+ Images link
-	+ More information link
+
+
+TODO
+-------
++ MORE INFO not working - OK
++ Homepage - OK
++ Update Next Project/Past Project - OK
+
+ 
+
++ Images navigation
+	+ Click on image on touch devices - OK
++ About Page - OK
++ Apply style to all projects - OK
++ Put scrollbar in the side - as if it was a normal one - OK
++ Text container starts from the top - OK
++ Put perfect scrollbar visible just if content bigger then container - OK
+
++ Scrollbar arrows not working in most of the projects
+	+ arrows works when over on the container - if mouse cursor was already on it, mouse cursor needs to go out and then enter again
+
+
+
++ Set font - OK
++ Set intro - OK
++ Style info section - OK
+
+
++ Limit project photos/content so it's not too heavy
+	+ use lazy loading http://www.appelsiini.net/projects/lazyload
++ Load more info content with jQuery - load? 
++ BG logo is moving with arrows - because of the project content widening the document
+	+ put it in a new container that doesn't change width (HARD)
+
+
+
+Restyle - Tim 6-2-2014
+--------------
+1. Just important links in the text - those are underlined
+	- press
+	- project website
+2. Links on nav menu not underlined
+3. Font-size: 16 - Line-height: 18
+4. Past project/Next project go away when not clickable
+5. About comes from the top
+6. More info/less info
+
+
+
 
 
 Style notes
 ------
 
-+ Try avoid specify event handler in markup (like onclick). Better use jQuery on (see http://stackoverflow.com/questions/15143610/alternative-to-passing-data-in-onclick)
++ Try avoid specify event handler in markup (like onclick). Better use jQuery on (see http://stackoverflow.com/questions/12627443/jquery-click-vs-onclick?lq=1)
 
 + No more id=0, id=1 for images. Id should be univocal
 
