@@ -1,6 +1,3 @@
-+ Removed vh dependencies - not compatible with some mobile devices
-
-
 Tim questions
 -------------
 + Titles of sections (I'd take away Overview, and Information seems reduntant, since it's the name of the current section anyway)

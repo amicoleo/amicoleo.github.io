@@ -48,7 +48,7 @@ function setContentFromHash(){
         }
     }
 
-    $("#viewport-section").css("visibility", "hidden"); 
+    $(".viewport-section#project-images").css("visibility", "hidden"); 
     $(".nav-menu").css("visibility", "hidden"); 
     loadProject(0, true); //Load first project - which is home 
 }
@@ -179,8 +179,8 @@ function updateProjectNavButtons(){
 function loadProject(projectId, bHomePage){
     currentProjectId = projectId; 
     updateProjectNavButtons(); 
-    $("#viewport-section" ).load(projects[projectId].fileName, function() {
-        setupImages($("#viewport-section"));
+    $(".viewport-section#project-images" ).load(projects[projectId].fileName+" .img-project-container", function() {
+        setupImages($(".viewport-section#project-images"));
         if (bHomePage){
             homepageFadeIn(); 
         }
@@ -189,9 +189,9 @@ function loadProject(projectId, bHomePage){
 
 function homepageFadeIn(){
     bContentTransition = true; 
-    $("#viewport-section").css("opacity", "0.0"); 
-    $("#viewport-section").css("visibility", "visible"); 
-    $("#viewport-section").animate(
+    $(".viewport-section#project-images").css("opacity", "0.0"); 
+    $(".viewport-section#project-images").css("visibility", "visible"); 
+    $(".viewport-section#project-images").animate(
         {"opacity": "1.0"}, 
         contentHomePageAppearTime, 
         function() {
@@ -211,17 +211,20 @@ function loadNextProject(){
         currentProjectId++; 
         bContentTransition = true; 
         console.log("currentProjectId: "+currentProjectId); 
-        $("#container").append('<section id="right-section"></section>'); //Add section positioned at the right of viewport
-        $("#right-section" ).load(projects[currentProjectId].fileName, function() {
+        
+        $("#container").append('<section class="right-section"></section>'); //Add section positioned at the right of viewport
+        $(".right-section").css("margin-left", "110%"); 
+        $(".right-section" ).load(projects[currentProjectId].fileName+" .img-project-container", function() {
         // Finished loading
-            setupImages($("#right-section")); 
-            $("#right-section").animate(
+            setupImages($(".right-section")); 
+            $(".right-section").animate(
                 {"marginLeft": "0%"}, 
                 contentTransitionTime, 
                 function() {
                     // Animation complete.
-                   $(this).removeAttr("id"); //Delete right-section id from div
-                   $(this).attr("id", "viewport-section"); //Add viewport-section id to div
+                    $(this).addClass("viewport-section"); //Delete right-section id from div
+                    $(this).removeClass("right-section"); //Delete right-section id from div
+                    $(this).attr("id", "project-images"); //Add viewport-section id to div
                    
                    updateProjectNavButtons(); 
                    $("#project-name").html(projects[currentProjectId].name); 
@@ -233,7 +236,7 @@ function loadNextProject(){
                    
                 });
 
-            $("#viewport-section").animate(
+            $(".viewport-section").animate(
                 {"marginLeft": "-110%"}, 
                 contentTransitionTime, 
                 function() {
@@ -248,17 +251,19 @@ function loadPastProject(){
     if (!bContentTransition && currentProjectId!==0){
         bContentTransition = true; 
         currentProjectId--; 
-        $("#container").append('<section id="left-section"></section>'); //Add section positioned at the right of viewport
-        $("#left-section" ).load(projects[currentProjectId].fileName, function() {
+        $("#container").append('<section class="left-section"></section>'); //Add section positioned at the right of viewport
+        $(".left-section").css("margin-left", "-110%"); 
+        $(".left-section" ).load(projects[currentProjectId].fileName+" .img-project-container", function() {
         // Finished loading
-            setupImages($("#left-section")); 
-            $("#left-section").animate(
+            setupImages($(".left-section")); 
+            $(".left-section").animate(
                 {"marginLeft": "0%"}, 
                 contentTransitionTime, 
                 function() {
                     // Animation complete.
-                   $(this).removeAttr("id"); //Delete right-section id from div
-                   $(this).attr("id", "viewport-section"); //Add viewport-section id to div
+                    $(this).addClass("viewport-section"); //Delete right-section id from div
+                    $(this).removeClass("right-section"); //Delete right-section id from div
+                    $(this).attr("id", "project-images"); //Add viewport-section id to div
                    
                    updateProjectNavButtons(); 
                    $("#project-name").html(projects[currentProjectId].name); 
@@ -269,7 +274,7 @@ function loadPastProject(){
                    setLocationHash(projects[currentProjectId].hash); 
                 });
 
-            $("#viewport-section").animate(
+            $(".viewport-section").animate(
                 {"marginLeft": "110%"}, 
                 contentTransitionTime, 
                 function() {
@@ -333,7 +338,7 @@ function loadNextImage(){
                         $("#background-logo").css("opacity", "1.0"); 
                         bImageTransition = false; 
                         currentProjectImageId = nextProjectImageId; 
-                        updateImgNavButtons($("#viewport-section")); 
+                        updateImgNavButtons($(".viewport-section#project-images")); 
                     });
             }
         });   
@@ -346,6 +351,9 @@ function showProjectInfo(){
         bProjectInfo = !bProjectInfo; 
         $("#background-logo").css("opacity", "0.0"); 
         if (bProjectInfo){
+
+
+
             $( ".img-container > a" ).children().each(function(){
                 if (parseInt($(this).attr("id")) === currentProjectImageId){
                     $(this).animate({"opacity": "0.0"}, 1000, function() {});
@@ -354,8 +362,10 @@ function showProjectInfo(){
             
             $(".img-footer").animate({ "opacity": "0.0"}, 1000, function() {}); 
 
-            $(".text-container-wrapper").css("visibility", "visible"); 
-            $(".text-container-wrapper").animate({ 
+            $("#container").append('<section class="viewport-section" id="project-info"></section>');
+            $(".viewport-section#project-info" ).load(projects[currentProjectId].fileName+" .text-container-wrapper", function() {
+                $(".text-container-wrapper").css("visibility", "visible"); 
+                $(".text-container-wrapper").animate({ 
                 "opacity": "1.0"
                 }, 1000, function() {
                     $("#background-logo").css("opacity", "1.0"); 
@@ -369,14 +379,20 @@ function showProjectInfo(){
                         }
                     }
                 }); 
+            }); 
+
         }else{
-            $( ".img-container > a" ).children().each(function(){
-                if (parseInt($(this).attr("id")) === currentProjectImageId){
-                    $(this).animate({"opacity": "1.0"}, 1000, function() {});
-                }
-            });
+            $(".viewport-section#project-images" ).load(projects[currentProjectId].fileName+" .img-project-container", function() {
+                setupImages($(".viewport-section#project-images"));
+                $( ".img-container > a" ).children().each(function(){
+                    if (parseInt($(this).attr("id")) === currentProjectImageId){
+                        $(this).animate({"opacity": "1.0"}, 1000, function() {});
+                    }
+                });
+                
+                $(".img-footer").animate({ "opacity": "1.0"}, 1000, function() {}); 
+            }); 
             
-            $(".img-footer").animate({ "opacity": "1.0"}, 1000, function() {}); 
             $(".text-container-wrapper").animate({ 
                 "opacity": "0.0"
                 }, 1000, function() {
