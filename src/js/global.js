@@ -218,6 +218,7 @@ function loadNextProject(){
                 contentTransitionTime, 
                 function() {
                     // Animation complete.
+                    $("viewport-section").remove();
                     $(this).addClass("viewport-section"); //Delete right-section id from div
                     $(this).removeClass("right-section"); //Delete right-section id from div
                     $(this).attr("id", "project-images"); //Add viewport-section id to div
@@ -258,7 +259,7 @@ function loadPastProject(){
                 function() {
                     // Animation complete.
                     $(this).addClass("viewport-section"); //Delete right-section id from div
-                    $(this).removeClass("right-section"); //Delete right-section id from div
+                    $(this).removeClass("left-section"); //Delete right-section id from div
                     $(this).attr("id", "project-images"); //Add viewport-section id to div
                    
                    updateProjectNavButtons(); 
