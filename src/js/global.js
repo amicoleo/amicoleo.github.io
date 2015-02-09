@@ -109,7 +109,7 @@ function showAboutSection(){
         if (!bAboutSection){
 
             $("#about-container").animate(
-                {"marginTop": "0"}, 
+                {"top": "0"}, 
                 contentTransitionTime, 
                 function() {
                     // Animation complete.
@@ -127,7 +127,7 @@ function showAboutSection(){
             // }); 
         }else{
             $("#about-container").animate(
-                {"marginTop": "-100vh"}, 
+                {"top": "-100%"}, 
                 contentTransitionTime, 
                 function() {
                     // Animation complete.
