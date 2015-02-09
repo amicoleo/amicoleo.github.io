@@ -210,11 +210,9 @@ section{
             text-align: center;
 
         }
-        // @media screen and (max-width: $break-m){
-        //     top: 10vh; 
-        //     height: 80vh; 
-        // }
-        .text-container{
+}
+    
+.text-container{
         position: absolute;
         padding-top: $menu-margin; 
         left: 50%;
@@ -225,8 +223,6 @@ section{
             top: 10%; 
     }
 }
-
-    
 
 #about-container{
     .nav-menu{
