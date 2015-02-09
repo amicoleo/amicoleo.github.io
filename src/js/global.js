@@ -420,6 +420,35 @@ function handleKeyUp(event){
     }
 } 
 
+//On touch scroll
+document.addEventListener("touchmove", handleTouchMove, false);
+document.addEventListener("touchend", handleTouchEnd, false);
+ 
+var scrollingOffsetX = 15; 
+var bTouchScrolling = false;
+var scrollingStartX;
+function handleTouchMove(event) {
+    event.preventDefault();
+    var touches = event.changedTouches;
+    if (!bTouchScrolling){
+        bTouchScrolling = true;
+        scrollingStartX = touches[0].pageX;
+    }
+}
+ 
+function handleTouchEnd(event) {
+    var touches = event.changedTouches;
+    if (bTouchScrolling){
+        bTouchScrolling = false;
+        if (touches[0].pageX > scrollingStartX + scrollingOffsetX){
+            loadPastProject(); 
+        }
+        else if (touches[0].pageX < scrollingStartX - scrollingOffsetX){
+            loadNextProject(); 
+        }
+    }
+}
+
 window.onresize = function(){
     $(".text-container-wrapper").scrollTop(0); 
     $(".text-container-wrapper").perfectScrollbar("update");
