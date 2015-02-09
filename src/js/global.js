@@ -284,15 +284,11 @@ function loadPastProject(){
 function setupImages(parentDiv){
      //Initial setup of images (opacity = 1.0 for initial image)
     currentProjectImageId = 0; 
-    parentDiv.find( ".img-container > a" ).children().each(function(){
-        if (parseInt($(this).attr("id")) === currentProjectImageId){
-            $(this).css( "opacity", "1.0" );
+    var imgDiv = parentDiv.find(" .img-container > a > #0"); 
 
-        }else{
-            $(this).css( "opacity", "0.0" );
-        }
-    }); 
-    
+    console.log("ciao: "+parentDiv.find(".img-container > a > #0").attr("id")); 
+    imgDiv.css( "opacity", "1.0" );
+    imgDiv.attr("src", $(imgDiv).attr("data-original")).load(); 
 
     $(".img-container > a").click(
     function(e){
@@ -313,7 +309,6 @@ function updateImgNavButtons(parentDiv){
 var bImageTransition = false; 
 
 function loadNextImage(){
-    console.log("bImageTransition: "+bImageTransition); 
     if (!bImageTransition){
         bImageTransition = true; 
         var totProjectImageNum = $( ".img-container > a" ).children().length; 
@@ -321,24 +316,27 @@ function loadNextImage(){
         if (nextProjectImageId === totProjectImageNum){
             nextProjectImageId = 0; 
         }
-
         $("#background-logo").css("opacity", "0.0"); //Set bg logo to transparent before crossfading images
-        $( ".img-container > a" ).children().each(function(){
-            if (parseInt($(this).attr("id")) === currentProjectImageId){
-                $(this).animate({ 
+        
+        var imgDiv =  $( ".img-container  a > #"+nextProjectImageId ); 
+
+        $( imgDiv ).attr("src", imgDiv.attr("data-original")).load(
+            function(){
+                 $(this).animate({"opacity": "1.0"}, 1000, 
+                function() {
+
+                    $( ".img-container > a > #"+currentProjectImageId ).animate({ 
                         "opacity": "0.0"
-                        }, 1000, function() {});
-            }
-            else if (parseInt($(this).attr("id")) === nextProjectImageId){
-                $(this).animate({"opacity": "1.0"}, 1000, 
-                    function() {
-                        $("#background-logo").css("opacity", "1.0"); 
-                        bImageTransition = false; 
-                        currentProjectImageId = nextProjectImageId; 
-                        updateImgNavButtons($(".viewport-section#project-images")); 
-                    });
-            }
-        });   
+                        }, 1000);
+                    $( ".img-container > a > #"+nextProjectImageId ).animate({ 
+                        "opacity": "1.0"
+                        }, 1000);
+                    $("#background-logo").css("opacity", "1.0"); 
+                    bImageTransition = false; 
+                    currentProjectImageId = nextProjectImageId; 
+                    updateImgNavButtons($(".viewport-section#project-images")); 
+                });
+            });
     }
 }
 
@@ -348,9 +346,6 @@ function showProjectInfo(){
         bProjectInfo = !bProjectInfo; 
         $("#background-logo").css("opacity", "0.0"); 
         if (bProjectInfo){
-
-
-
             $( ".img-container > a" ).children().each(function(){
                 if (parseInt($(this).attr("id")) === currentProjectImageId){
                     $(this).animate({"opacity": "0.0"}, 1000, function() {});

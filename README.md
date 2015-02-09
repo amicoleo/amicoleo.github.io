@@ -20,8 +20,11 @@ TODO
 + Text container starts from the top - OK
 + Put perfect scrollbar visible just if content bigger then container - OK
 
+
+
 + Scrollbar arrows not working in most of the projects
 	+ arrows works when over on the container - if mouse cursor was already on it, mouse cursor needs to go out and then enter again
+	+ use jQuery trigger to force trigger mouse events
 
 
 
@@ -30,9 +33,11 @@ TODO
 + Style info section - OK
 
 
++ Load more info content with jQuery - OK
 + Limit project photos/content so it's not too heavy
 	+ use lazy loading http://www.appelsiini.net/projects/lazyload
-+ Load more info content with jQuery - load? 
+
+
 + BG logo is moving with arrows - because of the project content widening the document
 	+ put it in a new container that doesn't change width (HARD)
 
