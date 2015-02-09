@@ -1,1 +1,58 @@
-html,body{height:100%;width:100%;overflow:hidden;background-color:#F6F7F6;color:#0023E8;position:relative;font-family:Courier;font-size:16px;line-height:18px}#container{height:100%;width:100%;overflow:hidden}#bg-container{position:absolute;top:0;left:0;height:100%;width:100%}#about-container{height:100%;width:100%;position:absolute;top:0;margin-top:-100vh;z-index:101;background-color:#0023E8;color:#F6F7F6}a,a:visited,a:active,a:focus{text-decoration:underline;color:#0023E8}a:hover{text-decoration:none;color:#0023E8}.nav-menu a{display:inline;text-decoration:none}.nav-menu .disabled,.nav-menu .disabled:focus,.nav-menu .disabled:hover{display:none;text-decoration:none}section{height:100%;width:100%;position:absolute;z-index:99}#background-logo{position:absolute;top:50%;left:50%;transform:translateX(-50%) translateY(-50%);width:75%;text-align:center;font-size:50px;z-index:98}@media screen and (max-width: 480px){#background-logo{font-size:30px}}#viewport-section{margin-left:0%}#right-section{margin-left:110%}#left-section{margin-left:-110%}.nav-menu{position:fixed;margin:20px;z-index:100;max-width:80%}.nav-menu.collapsed{opacity:0.0;visibility:hidden}#right-side{right:0;text-align:right}.project-container{position:absolute;padding-top:20vh;width:100%;height:100%;overflow:hidden}.project-container .img-container{position:relative;height:60vh;overflow:hidden}.project-container img{position:absolute;height:100%;left:50%;transform:translateX(-50%)}.project-container .img-footer{height:10%;text-align:center}.project-container .text-container-wrapper{position:absolute;top:0;left:0;height:100%;width:100%;opacity:0.0;overflow:hidden;visibility:hidden;background-color:#F6F7F6}.project-container .text-container-wrapper .project-info-title{text-transform:uppercase;text-align:center}.project-container .text-container{position:absolute;padding-top:20px;left:50%;transform:translateX(-50%);width:40%}@media screen and (max-width: 1024px){.project-container .text-container{width:80%;padding-top:10vh}}#about-container #about-link-close{color:#F6F7F6}#about-container .project-container{background-color:#0023E8;color:#F6F7F6}.additional-section .text-container{opacity:1.0}.ps-scrollbar-y-rail{position:absolute;right:0px;width:8px;height:100%;background-color:rgba(0,35,232,0.5);top:0}.ps-scrollbar-y-rail .ps-scrollbar-y{top:0;right:0;width:8px;position:absolute;height:100%;background-color:#0023E8}iframe{position:absolute;width:100%;height:100%;left:0;top:0}.iframe-aspect-ratio{position:relative;width:100%;height:0;padding-bottom:51%}
+/*
+Error: Invalid CSS after "...$body-font-size": expected ":", was "*2;"
+        on line 106 of /Users/amicoleo/SpiderOak Hive/__projects/OrgonomyProductionsWebsite/orgonomy-production/grunt/../src/sass/global.scss
+
+101:     /*height: 75%; *\/
+102: 
+103:     text-align: center; 
+104:     font-size: $body-font-size*3; 
+105:     @media screen and (max-width: $break-s){
+106:         $body-font-size*2;
+107:     }
+108:     z-index: 98; 
+109: }
+110: 
+111: #viewport-section{
+
+Backtrace:
+/Users/amicoleo/SpiderOak Hive/__projects/OrgonomyProductionsWebsite/orgonomy-production/grunt/../src/sass/global.scss:106
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.10/lib/sass/scss/parser.rb:1165:in `expected'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.10/lib/sass/scss/parser.rb:1101:in `expected'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.10/lib/sass/scss/parser.rb:1096:in `tok!'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.10/lib/sass/scss/parser.rb:605:in `variable'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.10/lib/sass/scss/parser.rb:661:in `block_child'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.10/lib/sass/scss/parser.rb:650:in `block_contents'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.10/lib/sass/scss/parser.rb:642:in `block'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.10/lib/sass/scss/parser.rb:401:in `media_directive'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.10/lib/sass/scss/parser.rb:219:in `special_directive'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.10/lib/sass/scss/parser.rb:194:in `directive'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.10/lib/sass/scss/parser.rb:661:in `block_child'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.10/lib/sass/scss/parser.rb:653:in `block_contents'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.10/lib/sass/scss/parser.rb:642:in `block'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.10/lib/sass/scss/parser.rb:635:in `ruleset'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.10/lib/sass/scss/parser.rb:660:in `block_child'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.10/lib/sass/scss/parser.rb:653:in `block_contents'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.10/lib/sass/scss/parser.rb:117:in `stylesheet'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.10/lib/sass/scss/parser.rb:42:in `parse'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.10/lib/sass/engine.rb:393:in `_to_tree'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.10/lib/sass/engine.rb:268:in `render'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.10/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.10/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.10/lib/sass/plugin/compiler.rb:209:in `each'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.10/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/Library/Ruby/Gems/2.0.0/gems/compass-1.0.3/lib/compass/sass_compiler.rb:40:in `compile!'
+/Library/Ruby/Gems/2.0.0/gems/compass-1.0.3/lib/compass/commands/update_project.rb:49:in `perform'
+/Library/Ruby/Gems/2.0.0/gems/compass-1.0.3/lib/compass/commands/base.rb:18:in `execute'
+/Library/Ruby/Gems/2.0.0/gems/compass-1.0.3/lib/compass/commands/project_base.rb:19:in `execute'
+/Library/Ruby/Gems/2.0.0/gems/compass-1.0.3/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
+/Library/Ruby/Gems/2.0.0/gems/compass-1.0.3/lib/compass/exec/sub_command_ui.rb:15:in `run!'
+/Library/Ruby/Gems/2.0.0/gems/compass-1.0.3/bin/compass:30:in `block in <top (required)>'
+/Library/Ruby/Gems/2.0.0/gems/compass-1.0.3/bin/compass:44:in `call'
+/Library/Ruby/Gems/2.0.0/gems/compass-1.0.3/bin/compass:44:in `<top (required)>'
+/usr/bin/compass:23:in `load'
+/usr/bin/compass:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"...$body-font-size\": expected \":\", was \"*2;\"\A         on line 106 of /Users/amicoleo/SpiderOak Hive/__projects/OrgonomyProductionsWebsite/orgonomy-production/grunt/../src/sass/global.scss\A \A 101:     /*height: 75%; */\A 102: \A 103:     text-align: center; \A 104:     font-size: $body-font-size*3; \A 105:     @media screen and (max-width: $break-s){\A 106:         $body-font-size*2;\A 107:     }\A 108:     z-index: 98; \A 109: }\A 110: \A 111: #viewport-section{"; }
