@@ -116,15 +116,14 @@ function showAboutSection(){
                     bAboutSection = true; 
                     bHashSetFromDOM = true; 
                     bContentTransition = false; 
-                    lastLocationHash = getLocationHash(); 
-                    console.log("lastLocationHash: "+lastLocationHash); 
+                    lastLocationHash = getLocationHash();
+                    if (lastLocationHash === aboutSection.hash){
+                        lastLocationHash = projects[0].hash; 
+                        loadProject(0); 
+                    }
                     setLocationHash(aboutSection.hash); 
             });     
 
-            // $("#about-section" ).load(aboutSection.fileName, 
-            //     function() {
-                         
-            // }); 
         }else{
             $("#about-container").animate(
                 {"top": "-100%"}, 
