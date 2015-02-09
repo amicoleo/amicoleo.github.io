@@ -215,20 +215,20 @@ section{
         //     top: 10vh; 
         //     height: 80vh; 
         // }
-        .text-container{
-        position: absolute;
-        padding-top: $menu-margin; 
-        left: 50%;
-        transform: translateX(-50%); 
-        width: 40%; 
-        @media screen and (max-width: $break-m){
-            width: 80%;  
-            top: 10%; 
-        }
-    }
+
 }
 
-    
+.text-container{
+    position: absolute;
+    padding-top: $menu-margin; 
+    left: 50%;
+    transform: translateX(-50%); 
+    width: 40%; 
+    @media screen and (max-width: $break-m){
+        width: 80%;  
+        top: 10%; 
+    }
+}    
 
 #about-container{
     .nav-menu{
