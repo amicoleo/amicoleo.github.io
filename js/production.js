@@ -290,6 +290,7 @@ function setupImages(parentDiv){
     var imgDiv = parentDiv.find(" .img-container > a > #0"); 
 
     console.log("ciao: "+parentDiv.find(".img-container > a > #0").attr("id")); 
+    imgDiv.css("visibility", "visible"); 
     imgDiv.css( "opacity", "1.0" );
     imgDiv.attr("src", $(imgDiv).attr("data-original")).load(); 
 
@@ -312,6 +313,7 @@ function updateImgNavButtons(parentDiv){
 var bImageTransition = false; 
 
 function loadNextImage(){
+    console.log("click load next image"); 
     if (!bImageTransition){
         bImageTransition = true; 
         var totProjectImageNum = $( ".img-container > a" ).children().length; 
@@ -319,27 +321,28 @@ function loadNextImage(){
         if (nextProjectImageId === totProjectImageNum){
             nextProjectImageId = 0; 
         }
+        console.log("click load next image - after transition control"); 
         $("#background-logo").css("opacity", "0.0"); //Set bg logo to transparent before crossfading images
         
-        var imgDiv =  $( ".img-container  a > #"+nextProjectImageId ); 
-
+        var imgDiv =  $( ".img-container  a > #"+nextProjectImageId); 
+        console.log("imgDiv length: "+imgDiv.length); 
         $( imgDiv ).attr("src", imgDiv.attr("data-original")).load(
             function(){
-                 $(this).animate({"opacity": "1.0"}, 1000, 
-                function() {
-
-                    $( ".img-container > a > #"+currentProjectImageId ).animate({ 
-                        "opacity": "0.0"
-                        }, 1000);
-                    $( ".img-container > a > #"+nextProjectImageId ).animate({ 
-                        "opacity": "1.0"
-                        }, 1000);
-                    $("#background-logo").css("opacity", "1.0"); 
-                    bImageTransition = false; 
-                    currentProjectImageId = nextProjectImageId; 
-                    updateImgNavButtons($(".viewport-section#project-images")); 
-                });
+                console.log("currentProjectImageId - just after loading: "+currentProjectImageId); 
+                $( ".img-container > a > #"+currentProjectImageId ).animate({ 
+                    "opacity": "0.0"
+                    }, 1000);
+                imgDiv.css("visibility", "visible"); 
+                $(imgDiv).animate({ 
+                    "opacity": "1.0"
+                    }, 1000, function(){
+                        $("#background-logo").css("opacity", "1.0"); 
+                        bImageTransition = false; 
+                        currentProjectImageId = nextProjectImageId; 
+                        console.log("currentProjectImageId - after next image: "+currentProjectImageId); 
+                        updateImgNavButtons($(".viewport-section#project-images")); 
             });
+        });
     }
 }
 
