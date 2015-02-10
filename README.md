@@ -12,14 +12,6 @@ TODO
 	+ use jQuery trigger to force trigger mouse events
 
 
-+ Images loading - problem with current code - OK
-	http://stackoverflow.com/questions/910727/jquery-event-for-images-loaded - use plugin
-
-+ Images loaded depend on screen size
-
-
-
-
 + MORE INFO not working - OK
 + Homepage - OK
 + Update Next Project/Past Project - OK
