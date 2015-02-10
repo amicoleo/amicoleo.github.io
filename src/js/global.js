@@ -22,6 +22,7 @@ var aboutSection = {
 $(function() {
     setContentFromHash();    
     setupLinks();   
+    jQuery.easing.def = "easeInOutExpo";
 });
 
 
