@@ -12,13 +12,11 @@ TODO
 	+ use jQuery trigger to force trigger mouse events
 
 
-+ Images loading - problem with current code - 
++ Images loading - problem with current code - OK
 	http://stackoverflow.com/questions/910727/jquery-event-for-images-loaded - use plugin
 
-+ Images slideshow stops at the last photo for touch devices
-	+ Maybe issue of z-index? 
-	+ Maybe problem with reloading images with load 
-+ Some possible issues with ajax calls 
++ Images loaded depend on screen size
+
 
 
 

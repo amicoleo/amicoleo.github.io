@@ -288,7 +288,8 @@ function setupImages(parentDiv){
     console.log("ciao: "+parentDiv.find(".img-container > a > #0").attr("id")); 
     imgDiv.css("visibility", "visible"); 
     imgDiv.css( "opacity", "1.0" );
-    imgDiv.attr("src", $(imgDiv).attr("data-original")).load(); 
+    imgDiv.attr("src", $(imgDiv).attr("data-original")).imagesLoaded( function() {
+    });  
 
     $(".img-container > a").click(
     function(e){
@@ -322,7 +323,7 @@ function loadNextImage(){
         
         var imgDiv =  $( ".img-container  a > #"+nextProjectImageId); 
         console.log("imgDiv length: "+imgDiv.length); 
-        $( imgDiv ).attr("src", imgDiv.attr("data-original")).load(
+        $( imgDiv ).attr("src", imgDiv.attr("data-original")).imagesLoaded(
             function(){
                 console.log("currentProjectImageId - just after loading: "+currentProjectImageId); 
                 $( ".img-container > a > #"+currentProjectImageId ).animate({ 
