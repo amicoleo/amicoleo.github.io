@@ -175,11 +175,16 @@ function updateProjectNavButtons(){
 function loadProject(projectId, bHomePage){
     currentProjectId = projectId; 
     updateProjectNavButtons(); 
+    if (bHomePage){
+        $(".viewport-section#project-images").css("opacity", "0.0"); 
+    }
     $(".viewport-section#project-images" ).load(projects[projectId].fileName+" .img-project-container", function() {
-        setupImages($(".viewport-section#project-images"));
-        if (bHomePage){
-            homepageFadeIn(); 
-        }
+        setupImages($(".viewport-section#project-images"), function(){
+            if (bHomePage){
+                homepageFadeIn(); 
+            }
+        });
+        
     }); 
 }
 
@@ -211,34 +216,36 @@ function loadNextProject(){
         $("#container").append('<section class="right-section"></section>'); //Add section positioned at the right of viewport
         $(".right-section").css("margin-left", "110%"); 
         $(".right-section" ).load(projects[currentProjectId].fileName+" .img-project-container", function() {
-        // Finished loading
-            setupImages($(".right-section")); 
-            $(".right-section").animate(
-                {"marginLeft": "0%"}, 
-                contentTransitionTime, 
-                function() {
-                    // Animation complete.
-                    $("viewport-section").remove();
-                    $(this).addClass("viewport-section"); //Delete right-section id from div
-                    $(this).removeClass("right-section"); //Delete right-section id from div
-                    $(this).attr("id", "project-images"); //Add viewport-section id to div
-                   
-                   updateProjectNavButtons(); 
-                   $("#project-name").html(projects[currentProjectId].name); 
-                   $("#info-link").html("MORE&nbsp;INFO");
+            // Finished loading
+            setupImages($(".right-section"), function(){
+                $(".right-section").animate(
+                    {"marginLeft": "0%"}, 
+                    contentTransitionTime, 
+                    function() {
+                        // Animation complete.
+                        $("viewport-section").remove();
+                        $(this).addClass("viewport-section"); //Delete right-section id from div
+                        $(this).removeClass("right-section"); //Delete right-section id from div
+                        $(this).attr("id", "project-images"); //Add viewport-section id to div
+                       
+                       updateProjectNavButtons(); 
+                       $("#project-name").html(projects[currentProjectId].name); 
+                       $("#info-link").html("MORE&nbsp;INFO");
 
-                   bHashSetFromDOM = true; 
-                   bContentTransition = false; 
-                   setLocationHash(projects[currentProjectId].hash); 
-                   
+                       bHashSetFromDOM = true; 
+                       bContentTransition = false; 
+                       setLocationHash(projects[currentProjectId].hash); 
+                       
+                    });
+
+                $(".viewport-section").animate(
+                    {"marginLeft": "-110%"}, 
+                    contentTransitionTime, 
+                    function() {
+                        $(this).remove();  
                 });
+            }); 
 
-            $(".viewport-section").animate(
-                {"marginLeft": "-110%"}, 
-                contentTransitionTime, 
-                function() {
-                    $(this).remove();  
-            });
         });             
     }
 
@@ -252,36 +259,38 @@ function loadPastProject(){
         $(".left-section").css("margin-left", "-110%"); 
         $(".left-section" ).load(projects[currentProjectId].fileName+" .img-project-container", function() {
         // Finished loading
-            setupImages($(".left-section")); 
-            $(".left-section").animate(
-                {"marginLeft": "0%"}, 
-                contentTransitionTime, 
-                function() {
-                    // Animation complete.
-                    $(this).addClass("viewport-section"); //Delete right-section id from div
-                    $(this).removeClass("left-section"); //Delete right-section id from div
-                    $(this).attr("id", "project-images"); //Add viewport-section id to div
-                   
-                   updateProjectNavButtons(); 
-                   $("#project-name").html(projects[currentProjectId].name); 
-                   $("#info-link").html("MORE&nbsp;INFO");
+            setupImages($(".left-section"), function(){
+                $(".left-section").animate(
+                    {"marginLeft": "0%"}, 
+                    contentTransitionTime, 
+                    function() {
+                        // Animation complete.
+                        $(this).addClass("viewport-section"); //Delete right-section id from div
+                        $(this).removeClass("left-section"); //Delete right-section id from div
+                        $(this).attr("id", "project-images"); //Add viewport-section id to div
+                       
+                       updateProjectNavButtons(); 
+                       $("#project-name").html(projects[currentProjectId].name); 
+                       $("#info-link").html("MORE&nbsp;INFO");
 
-                   bHashSetFromDOM = true; 
-                   bContentTransition = false; 
-                   setLocationHash(projects[currentProjectId].hash); 
+                       bHashSetFromDOM = true; 
+                       bContentTransition = false; 
+                       setLocationHash(projects[currentProjectId].hash); 
                 });
 
-            $(".viewport-section").animate(
-                {"marginLeft": "110%"}, 
-                contentTransitionTime, 
-                function() {
-                    $(this).remove();  
-            });
+                $(".viewport-section").animate(
+                    {"marginLeft": "110%"}, 
+                    contentTransitionTime, 
+                    function() {
+                        $(this).remove();  
+                });
+            }); 
+
         }); 
     }
 }
 
-function setupImages(parentDiv){
+function setupImages(parentDiv, finishedLoadingCallback){
      //Initial setup of images (opacity = 1.0 for initial image)
     currentProjectImageId = 0; 
     var imgDiv = parentDiv.find(" .img-container > a > #0"); 
@@ -290,6 +299,7 @@ function setupImages(parentDiv){
     imgDiv.css("visibility", "visible"); 
     imgDiv.css( "opacity", "1.0" );
     imgDiv.attr("src", $(imgDiv).attr("data-original")).imagesLoaded( function() {
+        finishedLoadingCallback(); 
     });  
 
     $(".img-container > a").click(
@@ -379,14 +389,17 @@ function showProjectInfo(){
 
         }else{
             $(".viewport-section#project-images" ).load(projects[currentProjectId].fileName+" .img-project-container", function() {
-                setupImages($(".viewport-section#project-images"));
-                $( ".img-container > a" ).children().each(function(){
-                    if (parseInt($(this).attr("id")) === currentProjectImageId){
-                        $(this).animate({"opacity": "1.0"}, 1000, function() {});
-                    }
+                setupImages($(".viewport-section#project-images"), function(){
+                    $( ".img-container > a" ).children().each(function(){
+                        if (parseInt($(this).attr("id")) === currentProjectImageId){
+                            $(this).animate({"opacity": "1.0"}, 1000, function() {});
+                        }
+                    });
+                    
+                    $(".img-footer").animate({ "opacity": "1.0"}, 1000, function() {}); 
+
                 });
-                
-                $(".img-footer").animate({ "opacity": "1.0"}, 1000, function() {}); 
+               
             }); 
             
             $(".text-container-wrapper").animate({ 
