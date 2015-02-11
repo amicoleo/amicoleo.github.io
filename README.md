@@ -11,6 +11,22 @@ TODO
 	+ arrows works when over on the container - if mouse cursor was already on it, mouse cursor needs to go out and then enter again
 	+ use jQuery trigger to force trigger mouse events
 
++ set darker background f3f3f4
++ text 14px - 16px line height
++ event callback defined in document.ready
++ Update nav on loadProject
++ about page
++ project menu change at the beginning of the animation
++ image countdown change at the beginning of the animation
++ fade out bar/hide bar when changing project
++ Text hides behind the menu on small screens
++ image number with high z-index. So it's always visible
++ Set 10px always on the image countdown
++ select image depending on size of device 
++ resize images 
+	try this on osx 
+	https://github.com/JamieMason/grunt-imageoptim
+	[can do a watch:imageoptim task target to be run on OSX]
 
 + MORE INFO not working - OK
 + Homepage - OK

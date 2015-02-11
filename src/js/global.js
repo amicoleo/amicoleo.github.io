@@ -38,8 +38,8 @@ function setContentFromHash(){
     else{
         for (var id in projects){
             if (projects[id].hash.toUpperCase() === currentHash.toUpperCase()){
-                loadProject(id, false); 
                 currentProjectId = parseInt(id); 
+                loadProject(currentProjectId, false); 
                 return; 
             }
         }
