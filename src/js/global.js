@@ -219,6 +219,9 @@ function loadNextProject(){
             // Finished loading
             updateProjectNavButtons(); 
             setupImages($(".right-section"), function(){
+                //
+                $(".ps-scrollbar-y-rail").css("visibility", "hidden"); 
+
                 $(".right-section").animate(
                     {"marginLeft": "0%"}, 
                     contentTransitionTime, 
@@ -261,6 +264,9 @@ function loadPastProject(){
         // Finished loading
             updateProjectNavButtons(); 
             setupImages($(".left-section"), function(){
+                //
+                $(".ps-scrollbar-y-rail").css("visibility", "hidden"); 
+
                 $(".left-section").animate(
                     {"marginLeft": "0%"}, 
                     contentTransitionTime, 
@@ -371,19 +377,21 @@ function showProjectInfo(){
             $("#container").append('<section class="viewport-section" id="project-info"></section>');
             $(".viewport-section#project-info" ).load(projects[currentProjectId].fileName+" .text-container-wrapper", function() {
                 $(".text-container-wrapper").css("visibility", "visible"); 
+                if ($(".text-container").height() +  $(".text-container").offset().top > $(window).height()){
+                    if (!$(".ps-scrollbar-y-rail").length){//If do not exist
+                        $(".text-container-wrapper").perfectScrollbar(); //create
+                        $(".ps-scrollbar-y-rail").css("visibility", "visible"); 
+                    }
+                    else{
+                        $(".text-container-wrapper").perfectScrollbar("update"); //otherwise update
+                        $(".ps-scrollbar-y-rail").css("visibility", "visible"); 
+                    }
+                }
                 $(".text-container-wrapper").animate({ 
                 "opacity": "1.0"
                 }, 1000, function() {
                     $("#background-logo").css("opacity", "1.0"); 
                     $("#info-link").html("LESS&nbsp;INFO"); 
-                    if ($(".text-container").height() +  $(".text-container").offset().top > $(window).height()){
-                        if (!$(".ps-scrollbar-y-rail").length){//If do not exist
-                            $(".text-container-wrapper").perfectScrollbar(); //create
-                        }
-                        else{
-                            $(".text-container-wrapper").perfectScrollbar("update"); //otherwise update
-                        }
-                    }
                 }); 
             }); 
 

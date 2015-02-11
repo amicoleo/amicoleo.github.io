@@ -10,13 +10,15 @@ TODO
 
 
 + Update nav on loadProject - OK
-+ project menu change at the beginning of the animation
-+ image countdown change at the beginning of the animation
++ project menu change at the beginning of the animation - OK
++ image countdown change at the beginning of the animation - OK
 + fade out bar/hide bar when changing project
++ info text also should appear before beginning of animation
 + Text hides behind the menu on small screens
 + image number with high z-index. So it's always visible
 + Set 10px always on the image countdown
 + select image depending on size of device 
++ delete useless children().each
 + resize images 
 	try this on osx 
 	https://github.com/JamieMason/grunt-imageoptim
