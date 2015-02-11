@@ -7,15 +7,9 @@ Tim questions
 TODO
 -------
 
-+ Scrollbar arrows not working in most of the projects 
-	+ arrows works when over on the container - if mouse cursor was already on it, mouse cursor needs to go out and then enter again
-	+ use jQuery trigger to force trigger mouse events
 
-+ set darker background f3f3f4
-+ text 14px - 16px line height
-+ event callback defined in document.ready
-+ Update nav on loadProject
-+ about page
+
++ Update nav on loadProject - OK
 + project menu change at the beginning of the animation
 + image countdown change at the beginning of the animation
 + fade out bar/hide bar when changing project
@@ -28,6 +22,14 @@ TODO
 	https://github.com/JamieMason/grunt-imageoptim
 	[can do a watch:imageoptim task target to be run on OSX]
 
++ about page
++ event callback defined in document.ready ?!?
++ Scrollbar arrows not working in most of the projects 
+	+ arrows works when over on the container - if mouse cursor was already on it, mouse cursor needs to go out and then enter again
+	+ use jQuery trigger to force trigger mouse events
+
++ set darker background f3f3f4
++ text 14px - 16px line height
 + MORE INFO not working - OK
 + Homepage - OK
 + Update Next Project/Past Project - OK

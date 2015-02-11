@@ -1320,6 +1320,7 @@ function loadNextProject(){
         $(".right-section").css("margin-left", "110%"); 
         $(".right-section" ).load(projects[currentProjectId].fileName+" .img-project-container", function() {
             // Finished loading
+            updateProjectNavButtons(); 
             setupImages($(".right-section"), function(){
                 $(".right-section").animate(
                     {"marginLeft": "0%"}, 
@@ -1331,7 +1332,6 @@ function loadNextProject(){
                         $(this).removeClass("right-section"); //Delete right-section id from div
                         $(this).attr("id", "project-images"); //Add viewport-section id to div
                        
-                       updateProjectNavButtons(); 
                        $("#project-name").html(projects[currentProjectId].name); 
                        $("#info-link").html("MORE&nbsp;INFO");
 
@@ -1362,6 +1362,7 @@ function loadPastProject(){
         $(".left-section").css("margin-left", "-110%"); 
         $(".left-section" ).load(projects[currentProjectId].fileName+" .img-project-container", function() {
         // Finished loading
+            updateProjectNavButtons(); 
             setupImages($(".left-section"), function(){
                 $(".left-section").animate(
                     {"marginLeft": "0%"}, 
@@ -1372,7 +1373,6 @@ function loadPastProject(){
                         $(this).removeClass("left-section"); //Delete right-section id from div
                         $(this).attr("id", "project-images"); //Add viewport-section id to div
                        
-                       updateProjectNavButtons(); 
                        $("#project-name").html(projects[currentProjectId].name); 
                        $("#info-link").html("MORE&nbsp;INFO");
 
@@ -1411,10 +1411,10 @@ function setupImages(parentDiv, finishedLoadingCallback){
         loadNextImage(); 
     });  
 
-    updateImgNavButtons(parentDiv); 
+    updateImgNavButtons(parentDiv, currentProjectImageId); 
 }
 
-function updateImgNavButtons(parentDiv){
+function updateImgNavButtons(parentDiv, currentProjectImageId){
     var totProjectImageNum = parentDiv.find( ".img-container > a" ).children().length; 
     parentDiv.find(".currentImgNum").html(currentProjectImageId+1); 
     parentDiv.find(".totImgNum").html(totProjectImageNum); 
@@ -1440,6 +1440,7 @@ function loadNextImage(){
         $( imgDiv ).attr("src", imgDiv.attr("data-original")).imagesLoaded(
             function(){
                 console.log("currentProjectImageId - just after loading: "+currentProjectImageId); 
+                updateImgNavButtons($(".viewport-section#project-images"), nextProjectImageId); 
                 $( ".img-container > a > #"+currentProjectImageId ).animate({ 
                     "opacity": "0.0"
                     }, 1000);
@@ -1451,7 +1452,6 @@ function loadNextImage(){
                         bImageTransition = false; 
                         currentProjectImageId = nextProjectImageId; 
                         console.log("currentProjectImageId - after next image: "+currentProjectImageId); 
-                        updateImgNavButtons($(".viewport-section#project-images")); 
             });
         });
     }
@@ -1537,10 +1537,6 @@ function showProjectInfo(){
 
 //On arrows
 document.addEventListener("keyup", handleKeyUp, false);
-// document.addEventListener("keydown", handleKeyUp, false);
-// function handleKeyDown(event){
-//     event.preventDefault(); 
-// }
 
 function handleKeyUp(event){
     // event.preventDefault();   
