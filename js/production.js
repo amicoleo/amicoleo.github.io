@@ -1480,6 +1480,7 @@ function showProjectInfo(){
             $("#container").append('<section class="viewport-section" id="project-info"></section>');
             $(".viewport-section#project-info" ).load(projects[currentProjectId].fileName+" .text-container-wrapper", function() {
                 $(".text-container-wrapper").css("visibility", "visible"); 
+                $("#info-link").html("LESS&nbsp;INFO"); 
                 if ($(".text-container").height() +  $(".text-container").offset().top > $(window).height()){
                     if (!$(".ps-scrollbar-y-rail").length){//If do not exist
                         $(".text-container-wrapper").perfectScrollbar(); //create
@@ -1494,13 +1495,13 @@ function showProjectInfo(){
                 "opacity": "1.0"
                 }, 1000, function() {
                     $("#background-logo").css("opacity", "1.0"); 
-                    $("#info-link").html("LESS&nbsp;INFO"); 
                 }); 
             }); 
 
         }else{
             $(".viewport-section#project-images" ).load(projects[currentProjectId].fileName+" .img-project-container", function() {
                 setupImages($(".viewport-section#project-images"), function(){
+                    $("#info-link").html("MORE&nbsp;INFO"); 
                     $( ".img-container > a" ).children().each(function(){
                         if (parseInt($(this).attr("id")) === currentProjectImageId){
                             $(this).animate({"opacity": "1.0"}, 1000, function() {});
@@ -1517,7 +1518,6 @@ function showProjectInfo(){
                 "opacity": "0.0"
                 }, 1000, function() {
                     $("#background-logo").css("opacity", "1.0"); 
-                    $("#info-link").html("MORE&nbsp;INFO"); 
                     $(".text-container-wrapper").css("visibility", "hidden"); 
 
             }); 
