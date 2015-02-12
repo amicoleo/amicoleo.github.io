@@ -15,14 +15,15 @@ TODO
 + fade out bar/hide bar when changing project - OK
 + info text also should appear before beginning of animation - OK
 + Set 10px always on the image countdown - OK
-+ Text hides behind the menu on small screens
++ Text hides behind the menu on small screens - OK
 	+ check if this solution works - otherwise to reset to 
 	comment @media-query in .text-container-wrapper
 	uncomment @media-query top: 10% in .text-container
 
++ set darker background f3f3f4
++ text 14px - 16px line height
+
 + select image depending on size of device 
-+ delete useless children().each
-+ If I need to hide all images (for info I can hide its container - when appear is still present)
 + resize images 
 	try this on osx 
 	https://github.com/JamieMason/grunt-imageoptim
@@ -34,8 +35,7 @@ TODO
 	+ arrows works when over on the container - if mouse cursor was already on it, mouse cursor needs to go out and then enter again
 	+ use jQuery trigger to force trigger mouse events
 
-+ set darker background f3f3f4
-+ text 14px - 16px line height
+
 + MORE INFO not working - OK
 + Homepage - OK
 + Update Next Project/Past Project - OK

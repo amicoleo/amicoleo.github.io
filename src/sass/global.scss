@@ -1,4 +1,4 @@
-$light-color: #F6F7F6; 
+$light-color: #F3F3F4; 
 
 $dark-color: #0023E8; 
 $half-dark-color: rgba(0,35,232, 0.5) ;
@@ -10,8 +10,8 @@ $break-m: 1024px;
 $menu-margin: 20px; 
 $img-footer-margin: 10px; 
 
-$body-font-size: 16px; 
-$body-line-height: 18px; 
+$body-font-size: 14px; 
+$body-line-height: 16px; 
 
 
 html, body{
@@ -154,11 +154,11 @@ section{
 .img-project-container{
     position: absolute; 
     width: 60%; 
-    height: 60%; 
+    height: 75%; 
     @media screen and (max-width: $break-m){
         width: 90%; 
     }
-    top: 50%;
+    top: 55%;
     left: 50%;
     overflow: hidden; 
     transform: translateY(-50%) translateX(-50%); 
