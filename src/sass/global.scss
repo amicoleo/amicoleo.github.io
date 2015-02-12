@@ -146,6 +146,10 @@ section{
     // overflow: hidden; 
 }
 
+.viewport-section#project-images{
+    
+}
+
 .img-project-container{
     position: absolute; 
     width: 60%; 
@@ -183,16 +187,19 @@ section{
     }    
 }
 
-    
+
+.viewport-section#project-info{
+    visibility: hidden; 
+    opacity: 0.0; 
+}
+
 .text-container-wrapper{
     position: absolute; 
     top: 0; 
     left: 0; 
     height: 100%; 
     width: 100%; 
-    opacity: 0.0; 
     overflow: hidden;
-    visibility: hidden; 
     background-color: $light-color;  
         .project-info-title{
             text-transform: uppercase; 

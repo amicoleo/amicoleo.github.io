@@ -13,7 +13,7 @@ TODO
 + project menu change at the beginning of the animation - OK
 + image countdown change at the beginning of the animation - OK
 + fade out bar/hide bar when changing project - OK
-+ info text also should appear before beginning of animation
++ info text also should appear before beginning of animation 
 + on info hide images when text loaded
 + Text hides behind the menu on small screens
 + image number with high z-index. So it's always visible
