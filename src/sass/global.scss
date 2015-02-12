@@ -204,10 +204,10 @@ section{
             text-align: center;
 
         }
-        // @media screen and (max-width: $break-m){
-        //     top: 10vh; 
-        //     height: 80vh; 
-        // }
+        @media screen and (max-width: $break-m){
+            top: 80px; 
+            // height: 80%; 
+        }
 
 }
 
@@ -219,7 +219,7 @@ section{
     width: 40%; 
     @media screen and (max-width: $break-m){
         width: 80%;  
-        top: 10%; 
+        // top: 10%; 
     }
 }    
 

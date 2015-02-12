@@ -14,9 +14,12 @@ TODO
 + image countdown change at the beginning of the animation - OK
 + fade out bar/hide bar when changing project - OK
 + info text also should appear before beginning of animation - OK
++ Set 10px always on the image countdown - OK
 + Text hides behind the menu on small screens
-+ image number with high z-index. So it's always visible
-+ Set 10px always on the image countdown
+	+ check if this solution works - otherwise to reset to 
+	comment @media-query in .text-container-wrapper
+	uncomment @media-query top: 10% in .text-container
+
 + select image depending on size of device 
 + delete useless children().each
 + If I need to hide all images (for info I can hide its container - when appear is still present)
