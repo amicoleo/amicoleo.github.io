@@ -7,7 +7,17 @@ Tim questions
 TODO
 -------
 
-
++ about page
++ on my mobile launches in half screen
++ select image depending on size of device 
++ resize images 
+	try this on osx 
+	https://github.com/JamieMason/grunt-imageoptim
+	[can do a watch:imageoptim task target to be run on OSX]
++ event callback defined in document.ready ?!?
++ Scrollbar arrows not working in most of the projects 
+	+ arrows works when over on the container - if mouse cursor was already on it, mouse cursor needs to go out and then enter again
+	+ use jQuery trigger to force trigger mouse events
 
 + Update nav on loadProject - OK
 + project menu change at the beginning of the animation - OK
@@ -20,20 +30,10 @@ TODO
 	comment @media-query in .text-container-wrapper
 	uncomment @media-query top: 10% in .text-container
 
-+ set darker background f3f3f4
-+ text 14px - 16px line height
++ set darker background f3f3f4 - OK
++ text 14px - 16px line height - OK
 
-+ select image depending on size of device 
-+ resize images 
-	try this on osx 
-	https://github.com/JamieMason/grunt-imageoptim
-	[can do a watch:imageoptim task target to be run on OSX]
 
-+ about page
-+ event callback defined in document.ready ?!?
-+ Scrollbar arrows not working in most of the projects 
-	+ arrows works when over on the container - if mouse cursor was already on it, mouse cursor needs to go out and then enter again
-	+ use jQuery trigger to force trigger mouse events
 
 
 + MORE INFO not working - OK

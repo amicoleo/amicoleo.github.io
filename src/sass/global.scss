@@ -236,6 +236,15 @@ section{
     .project-container{
         background-color: $dark-color;  
         color: $light-color; 
+        .text-container{
+            top: 50%;
+            left: 50%; 
+            transform: translateY(-50%) translateX(-50%);
+        }
+    }
+
+    a, a:visited, a:active, a:focus, a:hover{ 
+        color: $light-color; 
     }
 }
 
