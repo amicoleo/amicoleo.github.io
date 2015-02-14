@@ -20,9 +20,11 @@ var aboutSection = {
 }; 
 
 $(function() {
+    updateImgSrc(); 
     setContentFromHash();    
     setupLinks();   
     jQuery.easing.def = "easeInOutExpo";
+
 });
 
 
@@ -175,6 +177,7 @@ function updateProjectNavButtons(){
 function loadProject(projectId, bHomePage){
     currentProjectId = projectId; 
     updateProjectNavButtons(); 
+
     if (bHomePage){
         $(".viewport-section#project-images").css("opacity", "0.0"); 
     }
@@ -296,6 +299,18 @@ function loadPastProject(){
     }
 }
 
+var imgSrc;
+function updateImgSrc(){
+    if ($(window).width() < 480){
+        imgSrc = "data-original-s"; 
+    }else if ($(window).width() < 1024){
+        imgSrc = "data-original-m"; 
+    }else{
+        imgSrc = "data-original"; 
+        console.log("original"); 
+    }
+}
+
 function setupImages(parentDiv, finishedLoadingCallback){
      //Initial setup of images (opacity = 1.0 for initial image)
     currentProjectImageId = 0; 
@@ -304,7 +319,8 @@ function setupImages(parentDiv, finishedLoadingCallback){
     console.log("ciao: "+parentDiv.find(".img-container > a > #0").attr("id")); 
     imgDiv.css("visibility", "visible"); 
     imgDiv.css( "opacity", "1.0" );
-    imgDiv.attr("src", $(imgDiv).attr("data-original")).imagesLoaded( function() {
+
+    imgDiv.attr("src", $(imgDiv).attr(imgSrc)).imagesLoaded( function() {
         finishedLoadingCallback(); 
     });  
 
@@ -340,7 +356,7 @@ function loadNextImage(){
         
         var imgDiv =  $( ".img-container  a > #"+nextProjectImageId); 
         console.log("imgDiv length: "+imgDiv.length); 
-        $( imgDiv ).attr("src", imgDiv.attr("data-original")).imagesLoaded(
+        $( imgDiv ).attr("src", imgDiv.attr(imgSrc)).imagesLoaded(
             function(){
                 console.log("currentProjectImageId - just after loading: "+currentProjectImageId); 
                 updateImgNavButtons($(".viewport-section#project-images"), nextProjectImageId); 
@@ -477,4 +493,5 @@ function handleTouchEnd(event) {
 window.onresize = function(){
     $(".text-container-wrapper").scrollTop(0); 
     $(".text-container-wrapper").perfectScrollbar("update");
+    updateImgSrc(); 
 }; 
