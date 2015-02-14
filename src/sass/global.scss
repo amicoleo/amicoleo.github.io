@@ -204,8 +204,8 @@ section{
 
         }
         @media screen and (max-width: $break-m){
-            top: 80px; 
-            // height: 80%; 
+            top: 20%; 
+            height: 80%; 
         }
 
 }
@@ -218,6 +218,8 @@ section{
     width: 40%; 
     @media screen and (max-width: $break-m){
         width: 80%;  
+        padding-top: 0; 
+        padding-bottom: $menu-margin;
         // top: 10%; 
     }
 }    
