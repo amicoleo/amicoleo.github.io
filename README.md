@@ -7,16 +7,19 @@ Tim questions
 TODO
 -------
 
-+ Menu - change more/less fo  Text / Image
-+ Can we do a line through it like this — Next Project
-
++ Menu - change more/less fo  Text / Image - OK
++ Can we do a line through it like this — Next Project - OK
 + add favicon
+	added from here http://realfavicongenerator.net
+
+
 + Opening, needs a bit more time before the rest comes in. I think the images and the menu should both fade in at the same rate.
 + Also, please use the supplied logotype instead if possible and lock it so it cannot be selected?
-+ Put • instead of A
 + styling
 	+ courier new - font stack
 	+ 
+
+
 + on my mobile launches in half screen
 + Scrollbar arrows not working in most of the projects 
 	+ arrows works when over on the container - if mouse cursor was already on it, mouse cursor needs to go out and then enter again
