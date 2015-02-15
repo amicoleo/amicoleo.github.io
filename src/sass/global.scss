@@ -72,8 +72,8 @@ a:hover {
         text-decoration: none; 
     }
     .disabled, .disabled:focus, .disabled:hover{
-        display: none; 
-        text-decoration: none; 
+        // display: none; 
+        text-decoration: line-through; 
     }
 }
 
@@ -216,10 +216,10 @@ section{
     left: 50%;
     transform: translateX(-50%); 
     width: 40%; 
+    padding-bottom: $menu-margin;
     @media screen and (max-width: $break-m){
         width: 80%;  
         padding-top: 0; 
-        padding-bottom: $menu-margin;
         // top: 10%; 
     }
 }    

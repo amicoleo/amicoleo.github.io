@@ -7,17 +7,31 @@ Tim questions
 TODO
 -------
 
-+ about page
++ Menu - change more/less fo  Text / Image
++ Can we do a line through it like this — Next Project
+
++ add favicon
++ Opening, needs a bit more time before the rest comes in. I think the images and the menu should both fade in at the same rate.
++ Also, please use the supplied logotype instead if possible and lock it so it cannot be selected?
++ Put • instead of A
++ styling
+	+ courier new - font stack
+	+ 
 + on my mobile launches in half screen
-+ select image depending on size of device 
++ Scrollbar arrows not working in most of the projects 
+	+ arrows works when over on the container - if mouse cursor was already on it, mouse cursor needs to go out and then enter again
+	+ use jQuery trigger to force trigger mouse events
+
+
+
++ about page - OK
++ select image depending on size of device - OK
+
+
 + resize images 
 	try this on osx 
 	https://github.com/JamieMason/grunt-imageoptim
 	[can do a watch:imageoptim task target to be run on OSX]
-+ event callback defined in document.ready ?!?
-+ Scrollbar arrows not working in most of the projects 
-	+ arrows works when over on the container - if mouse cursor was already on it, mouse cursor needs to go out and then enter again
-	+ use jQuery trigger to force trigger mouse events
 
 + Update nav on loadProject - OK
 + project menu change at the beginning of the animation - OK

@@ -153,7 +153,7 @@ function showAboutSection(){
 function updateProjectNavButtons(){
     bProjectInfo = false; 
     $("#project-name").html(projects[currentProjectId].name); 
-    $("#info-link").html("MORE&nbsp;INFO");
+    $("#info-link").html("TEXT");
 
     if (currentProjectId+1 === projects.length){
         $(".button-menu.next-button-menu").addClass("disabled"); 
@@ -167,11 +167,11 @@ function updateProjectNavButtons(){
         $(".button-menu.back-button-menu").removeClass("disabled");
    }
 
-   if (currentProjectId+1 === projects.length || currentProjectId-1 === -1){
-        $(".extra-button-menu").addClass("disabled");  
-   }else{
-        $(".extra-button-menu").removeClass("disabled"); 
-   }
+   // if (currentProjectId+1 === projects.length || currentProjectId-1 === -1){
+   //      $(".extra-button-menu").addClass("disabled");  
+   // }else{
+   //      $(".extra-button-menu").removeClass("disabled"); 
+   // }
 }
 
 function loadProject(projectId, bHomePage){
@@ -236,7 +236,7 @@ function loadNextProject(){
                         $(this).attr("id", "project-images"); //Add viewport-section id to div
                        
                        $("#project-name").html(projects[currentProjectId].name); 
-                       $("#info-link").html("MORE&nbsp;INFO");
+                       $("#info-link").html("TEXT");
 
                        bHashSetFromDOM = true; 
                        bContentTransition = false; 
@@ -280,7 +280,7 @@ function loadPastProject(){
                         $(this).attr("id", "project-images"); //Add viewport-section id to div
                        
                        $("#project-name").html(projects[currentProjectId].name); 
-                       $("#info-link").html("MORE&nbsp;INFO");
+                       $("#info-link").html("TEXT");
 
                        bHashSetFromDOM = true; 
                        bContentTransition = false; 
@@ -378,7 +378,7 @@ function loadNextImage(){
 
 function setupProjectInfo(){
     $(".viewport-section#project-info").css("visibility", "visible"); 
-    $("#info-link").html("LESS&nbsp;INFO"); 
+    $("#info-link").html("IMAGE"); 
     if ($(".text-container").height() +  $(".text-container").offset().top > $(window).height()){
         if (!$(".ps-scrollbar-y-rail").length){//If do not exist
             $(".text-container-wrapper").perfectScrollbar(); //create
@@ -418,7 +418,7 @@ function showProjectInfo(){
         }else{
             $(".viewport-section#project-images").css("visibility", "visible"); 
             $(".viewport-section#project-images").animate({"opacity": "1.0"}, 1000);
-            $("#info-link").html("MORE&nbsp;INFO"); 
+            $("#info-link").html("TEXT"); 
             
             $(".viewport-section#project-info").animate({ 
                 "opacity": "0.0"
