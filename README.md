@@ -14,9 +14,7 @@ TODO
 
 + Opening, needs a bit more time before the rest comes in. I think the images and the menu should both fade in at the same rate.
 + Also, please use the supplied logotype instead if possible and lock it so it cannot be selected?
-+ styling
-	+ courier new - font stack
-	+ 
++ courier new - font stack
 
 
 + on my mobile launches in half screen

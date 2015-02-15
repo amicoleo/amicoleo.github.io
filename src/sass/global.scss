@@ -20,7 +20,7 @@ html, body{
     background-color: $light-color; 
     color: $dark-color; 
     position: relative; 
-    font-family: Courier; 
+    font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
     font-size: $body-font-size; 
     line-height: $body-line-height; 
     @media screen and (max-width: $break-s){
