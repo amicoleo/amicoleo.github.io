@@ -1106,8 +1106,8 @@ var currentProjectImageId = 0;
 
 
 var contentTransitionTime = 1500;
-var contentHomePageAppearTime = 1500; 
-var navHomePageAppearTime = 1000; 
+var contentHomePageAppearTime = 2500; 
+var contentHomePageWaitTime = 500; 
 
 var bContentTransition = false; 
 
@@ -1298,18 +1298,19 @@ function homepageFadeIn(){
     bContentTransition = true; 
     $(".viewport-section#project-images").css("opacity", "0.0"); 
     $(".viewport-section#project-images").css("visibility", "visible"); 
-    $(".viewport-section#project-images").animate(
+    $(".viewport-section#project-images").delay(contentHomePageWaitTime).animate(
         {"opacity": "1.0"}, 
         contentHomePageAppearTime, 
         function() {
             bContentTransition = false; 
-            $(".nav-menu").css("opacity","0.0");    
-            $(".nav-menu").css("visibility","visible"); 
-            $(".nav-menu").animate(
-                {"opacity": "1.0"}, 
-                navHomePageAppearTime
-                ); 
     });
+
+    $(".nav-menu").css("opacity","0.0");    
+    $(".nav-menu").css("visibility","visible"); 
+    $(".nav-menu").delay(contentHomePageWaitTime).animate(
+        {"opacity": "1.0"}, 
+        contentHomePageAppearTime
+        ); 
 
 }
 
