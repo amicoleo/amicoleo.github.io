@@ -9,9 +9,8 @@ TODO
 
 + Menu - change more/less fo  Text / Image - OK
 + Can we do a line through it like this — Next Project - OK
-+ add favicon
++ add favicon - OK
 	added from here http://realfavicongenerator.net
-
 
 + Opening, needs a bit more time before the rest comes in. I think the images and the menu should both fade in at the same rate.
 + Also, please use the supplied logotype instead if possible and lock it so it cannot be selected?
