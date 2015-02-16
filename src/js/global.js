@@ -17,8 +17,10 @@ var breakL = 1824;
 var projects = [
         {fileName: "../PatchOfSky.html", hash: "PatchOfSky", name: "PATCH OF SKY"},
         {fileName: "../ProgrammingObjects.html", hash: "ProgrammingObjects", name: "PROGRAMMING OBJECTS"}, 
+        {fileName: "../MFGS.html", hash: "MuseumFutureGovernmentServices", name: "Museum of the Future Government Services"},
         {fileName: "../MessageBox.html", hash: "MessageBox", name: "MESSAGE BOX"},
         {fileName: "../StonePad.html", hash: "StonePad", name: "STONE PAD"}, //[ProjectHTMLFilename, ProjectHash]
+
     ];
 var aboutSection = {
     fileName: "../About.html", 

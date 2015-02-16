@@ -141,6 +141,9 @@ section{
     @media screen and (max-width: $break-m){
         position: absolute; 
     }
+    #project-name{
+        text-transform: uppercase; 
+    }
 }
 .nav-menu.collapsed{
     opacity: 0.0; 
