@@ -1407,7 +1407,7 @@ var imgSrc;
 function updateImgSrc(){
     if ($(window).width() < 480){
         imgSrc = "data-original-s"; 
-    }else if ($(window).width() < 1024){
+    }else if ($(window).width() < 1824){
         imgSrc = "data-original-m"; 
     }else{
         imgSrc = "data-original"; 
@@ -1458,7 +1458,7 @@ function loadNextImage(){
         updateImgNavButtons($(".viewport-section#project-images"), nextProjectImageId); 
         $( ".img-container > a > #"+currentProjectImageId ).animate({ 
             "opacity": "0.0"
-            }, 1000);
+            }, 2000);
         var imgDiv =  $( ".img-container  a > #"+nextProjectImageId); 
         $( imgDiv ).attr("src", imgDiv.attr(imgSrc)).imagesLoaded(
             function(){

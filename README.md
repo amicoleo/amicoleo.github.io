@@ -11,7 +11,8 @@ TODO
    cursor: default;
 
 + hide bg image when crossfading images
-
++ change media query for images loading - 
++ image fades out before the next fades in - OK
 + Menu - change more/less fo  Text / Image - OK
 + Can we do a line through it like this — Next Project - OK
 + add favicon - OK
