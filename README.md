@@ -9,6 +9,8 @@ TODO
 + Update bg color
 + About in vertical 
 + mobile with menu going up
+	+ overflow-y: hidden when launching about
+	+ overflow-y: hidden when on image
 
 + disable pointer on disabled links - on css - OK
 	pointer-events: none;

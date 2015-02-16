@@ -8,6 +8,12 @@ var contentHomePageWaitTime = 500;
 
 var bContentTransition = false; 
 
+var breakS = 480;
+var breakM = 1024; 
+var breakL = 1824; 
+
+
+
 var projects = [
         {fileName: "../PatchOfSky.html", hash: "PatchOfSky", name: "PATCH OF SKY"},
         {fileName: "../ProgrammingObjects.html", hash: "ProgrammingObjects", name: "PROGRAMMING OBJECTS"}, 
@@ -125,6 +131,7 @@ function showAboutSection(){
                         loadProject(0); 
                     }
                     setLocationHash(aboutSection.hash); 
+                    $("body").css("overflow-y", "hidden"); 
             });     
 
         }else{
@@ -138,6 +145,7 @@ function showAboutSection(){
                     bContentTransition = false; 
 
                     setLocationHash(lastLocationHash); 
+                    $("body").css("overflow-y", "visible"); 
             });     
             
         }
@@ -215,7 +223,6 @@ function loadNextProject(){
     if (!bContentTransition && currentProjectId !== projects.length-1){
         currentProjectId++; 
         bContentTransition = true; 
-        console.log("currentProjectId: "+currentProjectId); 
         
         $("#container").append('<section class="right-section"></section>'); //Add section positioned at the right of viewport
         $(".right-section").css("margin-left", "110%"); 
@@ -224,7 +231,14 @@ function loadNextProject(){
             updateProjectNavButtons(); 
             setupImages($(".right-section"), function(){
                 //
+
                 $(".ps-scrollbar-y-rail").css("visibility", "hidden"); 
+                $("html, body").scrollTop(0); 
+                
+                if (bProjectInfo){
+                    $(".ps-scrollbar-y-rail").css("visibility", "hidden"); 
+                    $(window).scrollTop(0); 
+                }
 
                 $(".right-section").animate(
                     {"marginLeft": "0%"}, 
@@ -269,7 +283,15 @@ function loadPastProject(){
             updateProjectNavButtons(); 
             setupImages($(".left-section"), function(){
                 //
+                // if (navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/)) {          
+                //             window.scrollTo(0,0); // first value for left offset, second value for top offset
+                // }else{ 
+                //     $(".ps-scrollbar-y-rail").css("visibility", "hidden"); 
+                //     $("html, body").scrollTop(0); 
+                // }
+
                 $(".ps-scrollbar-y-rail").css("visibility", "hidden"); 
+                $("html, body").scrollTop(0); 
 
                 $(".left-section").animate(
                     {"marginLeft": "0%"}, 
@@ -302,9 +324,9 @@ function loadPastProject(){
 
 var imgSrc;
 function updateImgSrc(){
-    if ($(window).width() < 480){
+    if ($(window).width() < breakS){
         imgSrc = "data-original-s"; 
-    }else if ($(window).width() < 1824){
+    }else if ($(window).width() < breakL){
         imgSrc = "data-original-m"; 
     }else{
         imgSrc = "data-original"; 
@@ -376,13 +398,15 @@ function setupProjectInfo(){
     $(".viewport-section#project-info").css("visibility", "visible"); 
     $("#info-link").html("IMAGE"); 
     if ($(".text-container").height() +  $(".text-container").offset().top > $(window).height()){
-        if (!$(".ps-scrollbar-y-rail").length){//If do not exist
-            $(".text-container-wrapper").perfectScrollbar(); //create
-            $(".ps-scrollbar-y-rail").css("visibility", "visible"); 
-        }
-        else{
-            $(".text-container-wrapper").perfectScrollbar("update"); //otherwise update
-            $(".ps-scrollbar-y-rail").css("visibility", "visible"); 
+        if ($(window).width() > breakM){
+            if (!$(".ps-scrollbar-y-rail").length){//If do not exist
+                $(".text-container-wrapper").perfectScrollbar(); //create
+                $(".ps-scrollbar-y-rail").css("visibility", "visible"); 
+            }
+            else{
+                $(".text-container-wrapper").perfectScrollbar("update"); //otherwise update
+                $(".ps-scrollbar-y-rail").css("visibility", "visible"); 
+            }
         }
     }
     $(".viewport-section#project-info").animate({ 
@@ -461,15 +485,17 @@ function handleKeyUp(event){
 document.addEventListener("touchmove", handleTouchMove, false);
 document.addEventListener("touchend", handleTouchEnd, false);
  
-var scrollingOffsetX = 15; 
+var scrollingOffsetX = 25; 
 var bTouchScrolling = false;
 var scrollingStartX;
+var scrollingStartY;
 function handleTouchMove(event) {
-    event.preventDefault();
+    // event.preventDefault();
     var touches = event.changedTouches;
     if (!bTouchScrolling){
         bTouchScrolling = true;
         scrollingStartX = touches[0].pageX;
+        scrollingStartY = touches[0].pageY;
     }
 }
  
@@ -477,17 +503,32 @@ function handleTouchEnd(event) {
     var touches = event.changedTouches;
     if (bTouchScrolling){
         bTouchScrolling = false;
-        if (touches[0].pageX > scrollingStartX + scrollingOffsetX){
-            loadPastProject(); 
-        }
-        else if (touches[0].pageX < scrollingStartX - scrollingOffsetX){
-            loadNextProject(); 
+        var scrollingDiffX = Math.abs(touches[0].pageX - scrollingStartX); 
+        var scrollingDiffY = Math.abs(touches[0].pageY - scrollingStartY); 
+        if (scrollingDiffX > scrollingDiffY){
+            if (touches[0].pageX > scrollingStartX + scrollingOffsetX){
+                loadPastProject(); 
+            }
+            else if (touches[0].pageX < scrollingStartX - scrollingOffsetX){
+                loadNextProject(); 
+            }
         }
     }
 }
 
 window.onresize = function(){
-    $(".text-container-wrapper").scrollTop(0); 
-    $(".text-container-wrapper").perfectScrollbar("update");
+    if ($(window).width() > breakM){
+        if (!$(".ps-scrollbar-y-rail").length){//If do not exist
+            $(".text-container-wrapper").perfectScrollbar(); //create
+            $(".ps-scrollbar-y-rail").css("visibility", "visible"); 
+        }
+        else{
+            $(".text-container-wrapper").scrollTop(0); 
+            $(".text-container-wrapper").perfectScrollbar("update"); //otherwise update
+            $(".ps-scrollbar-y-rail").css("visibility", "visible"); 
+        }
+    }else{
+        $(".text-container-wrapper").perfectScrollbar("destroy");
+    }
     updateImgSrc(); 
 }; 
