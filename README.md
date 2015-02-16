@@ -6,6 +6,11 @@ Tim questions
 
 TODO
 -------
++ disable pointer on disabled links - on css
+	 pointer-events: none;
+   cursor: default;
+
++ hide bg image when crossfading images
 
 + Menu - change more/less fo  Text / Image - OK
 + Can we do a line through it like this — Next Project - OK

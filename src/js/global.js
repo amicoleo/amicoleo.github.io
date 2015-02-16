@@ -344,7 +344,6 @@ function updateImgNavButtons(parentDiv, currentProjectImageId){
 var bImageTransition = false; 
 
 function loadNextImage(){
-    console.log("click load next image"); 
     if (!bImageTransition){
         bImageTransition = true; 
         var totProjectImageNum = $( ".img-container > a" ).children().length; 
@@ -352,18 +351,14 @@ function loadNextImage(){
         if (nextProjectImageId === totProjectImageNum){
             nextProjectImageId = 0; 
         }
-        console.log("click load next image - after transition control"); 
         $("#background-logo").css("opacity", "0.0"); //Set bg logo to transparent before crossfading images
-        
+        updateImgNavButtons($(".viewport-section#project-images"), nextProjectImageId); 
+        $( ".img-container > a > #"+currentProjectImageId ).animate({ 
+            "opacity": "0.0"
+            }, 1000);
         var imgDiv =  $( ".img-container  a > #"+nextProjectImageId); 
-        console.log("imgDiv length: "+imgDiv.length); 
         $( imgDiv ).attr("src", imgDiv.attr(imgSrc)).imagesLoaded(
             function(){
-                console.log("currentProjectImageId - just after loading: "+currentProjectImageId); 
-                updateImgNavButtons($(".viewport-section#project-images"), nextProjectImageId); 
-                $( ".img-container > a > #"+currentProjectImageId ).animate({ 
-                    "opacity": "0.0"
-                    }, 1000);
                 imgDiv.css("visibility", "visible"); 
                 $(imgDiv).animate({ 
                     "opacity": "1.0"
