@@ -6,11 +6,15 @@ Tim questions
 
 TODO
 -------
-+ disable pointer on disabled links - on css
++ Update bg color
++ About in vertical 
++ mobile with menu going up
+
++ disable pointer on disabled links - on css - OK
 	pointer-events: none;
    	cursor: default;
 
-+ hide bg image when crossfading images
++ hide bg image when crossfading images - OK
 + change media query for images loading - OK
 + image fades out before the next fades in - OK
 + Menu - change more/less fo  Text / Image - OK
