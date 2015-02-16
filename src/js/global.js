@@ -351,11 +351,11 @@ function loadNextImage(){
         if (nextProjectImageId === totProjectImageNum){
             nextProjectImageId = 0; 
         }
-        $("#background-logo").css("opacity", "0.0"); //Set bg logo to transparent before crossfading images
+        $("#background-logo-img").css("opacity", "0.0"); //Set bg logo to transparent before crossfading images
         updateImgNavButtons($(".viewport-section#project-images"), nextProjectImageId); 
         $( ".img-container > a > #"+currentProjectImageId ).animate({ 
             "opacity": "0.0"
-            }, 2000);
+            }, 1000);
         var imgDiv =  $( ".img-container  a > #"+nextProjectImageId); 
         $( imgDiv ).attr("src", imgDiv.attr(imgSrc)).imagesLoaded(
             function(){
@@ -363,7 +363,7 @@ function loadNextImage(){
                 $(imgDiv).animate({ 
                     "opacity": "1.0"
                     }, 1000, function(){
-                        $("#background-logo").css("opacity", "1.0"); 
+                        $("#background-logo-img").css("opacity", "1.0"); 
                         bImageTransition = false; 
                         currentProjectImageId = nextProjectImageId; 
                         console.log("currentProjectImageId - after next image: "+currentProjectImageId); 
@@ -388,14 +388,14 @@ function setupProjectInfo(){
     $(".viewport-section#project-info").animate({ 
     "opacity": "1.0"
     }, 1000, function() {
-        $("#background-logo").css("opacity", "1.0"); 
+        $("#background-logo-img").css("opacity", "1.0"); 
     }); 
 }
 
 function showProjectInfo(){
     if (!bContentTransition){
         bProjectInfo = !bProjectInfo; 
-        $("#background-logo").css("opacity", "0.0"); 
+        $("#background-logo-img").css("opacity", "0.0"); 
         if (bProjectInfo){
             $(".viewport-section#project-images").animate({"opacity": "0.0"}, 1000, function()
                 {
@@ -419,7 +419,7 @@ function showProjectInfo(){
             $(".viewport-section#project-info").animate({ 
                 "opacity": "0.0"
                 }, 1000, function() {
-                    $("#background-logo").css("opacity", "1.0"); 
+                    $("#background-logo-img").css("opacity", "1.0"); 
                     $(".viewport-section#project-info").css("visibility", "hidden"); 
             }); 
         }
