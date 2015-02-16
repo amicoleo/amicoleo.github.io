@@ -70,10 +70,12 @@ a:hover {
     a{
         display: inline; 
         text-decoration: none; 
+        pointer-events: auto;
     }
     .disabled, .disabled:focus, .disabled:hover{
         // display: none; 
         text-decoration: line-through; 
+        pointer-events: none;
     }
 }
 
