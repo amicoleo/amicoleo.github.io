@@ -39,11 +39,14 @@ function setContentFromHash(){
 
     console.log("currentHash: "+currentHash); 
     if (currentHash === "About"){
-        showAboutSection(); 
+        showAboutSection(false); 
         return; 
         
     }
     else{
+        if (bAboutSection){
+            showAboutSection(false); //for closing about section
+        }
         for (var id in projects){
             if (projects[id].hash.toUpperCase() === currentHash.toUpperCase()){
                 currentProjectId = parseInt(id); 
@@ -68,6 +71,7 @@ function getLocationHash(){
 }
 
 window.onhashchange = function() {
+    console.log("bHashSetFromDOM: "+bHashSetFromDOM); 
      if (!bHashSetFromDOM){
         setContentFromHash(); 
     }else{
@@ -101,18 +105,18 @@ function setupLinks(){
     $("#about-link-open").click(
         function(e){
             e.preventDefault();
-            showAboutSection(); 
+            showAboutSection(true); 
     }); 
     $("#about-link-close").click(
         function(e){
             e.preventDefault();
-            showAboutSection(); 
+            showAboutSection(true); 
     }); 
 }
 
 var bAboutSection = false; 
 var lastLocationHash = ""; 
-function showAboutSection(){
+function showAboutSection(bSetFromDOM){
     if (!bContentTransition){
         bContentTransition = true;
         if (!bAboutSection){
@@ -123,14 +127,17 @@ function showAboutSection(){
                 function() {
                     // Animation complete.
                     bAboutSection = true; 
-                    bHashSetFromDOM = true; 
+                    if (bSetFromDOM){
+                        bHashSetFromDOM = true; 
+                        setLocationHash(aboutSection.hash); 
+                    }   
+
                     bContentTransition = false; 
                     lastLocationHash = getLocationHash();
                     if (lastLocationHash === aboutSection.hash){
                         lastLocationHash = projects[0].hash; 
                         loadProject(0); 
                     }
-                    setLocationHash(aboutSection.hash); 
                     $("body").css("overflow-y", "hidden"); 
             });     
 
@@ -141,11 +148,13 @@ function showAboutSection(){
                 function() {
                     // Animation complete.
                     bAboutSection = false; 
-                    bHashSetFromDOM = true; 
                     bContentTransition = false; 
-
-                    setLocationHash(lastLocationHash); 
                     $("body").css("overflow-y", "visible"); 
+
+                    if (bSetFromDOM){
+                        setLocationHash(lastLocationHash); 
+                        bHashSetFromDOM = true; 
+                    }
             });     
             
         }
