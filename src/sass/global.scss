@@ -251,9 +251,11 @@ section{
         margin: $menu-margin; 
         z-index: 103; 
         max-width: 80%; 
+
     }
     #about-link-close{
         color: $light-color; 
+        opacity: 0.0; 
     }
     .project-container{
         background-color: $dark-color;  

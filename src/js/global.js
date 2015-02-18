@@ -129,18 +129,24 @@ function showAboutSection(bSetFromDOM){
                 function() {
                     // Animation complete.
                     bAboutSection = true; 
+                    bContentTransition = false; 
                     if (bSetFromDOM){
                         bHashSetFromDOM = true; 
                         setLocationHash(aboutSection.hash); 
                     }   
-
-                    bContentTransition = false; 
                     lastLocationHash = getLocationHash();
+                    
+
+                    //This is for having a project behing the about section, when reached the page from a link
                     if (lastLocationHash === aboutSection.hash){
                         lastLocationHash = projects[0].hash; 
                         loadProject(0); 
                     }
                     $("body").css("overflow-y", "hidden"); 
+                    $("#about-link-close").animate(
+                        {"opacity": "1.0"}, 
+                        contentTransitionTime
+                        ); 
             });     
 
         }else{
@@ -151,12 +157,14 @@ function showAboutSection(bSetFromDOM){
                     // Animation complete.
                     bAboutSection = false; 
                     bContentTransition = false; 
-                    $("body").css("overflow-y", "visible"); 
 
                     if (bSetFromDOM){
                         setLocationHash(lastLocationHash); 
                         bHashSetFromDOM = true; 
                     }
+
+                    $("body").css("overflow-y", "visible"); 
+                    $("#about-link-close").css("opacity", "0.0"); 
             });     
             
         }
