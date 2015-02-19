@@ -485,6 +485,24 @@ function showProjectInfo(){
 //     }
 // }
 
+//on mousewheel
+document.addEventListener("wheel", handleMouseWheel, false);
+
+function handleMouseWheel(event){
+    if (Math.abs(event.deltaX - event.deltaY) > 0){
+        event.preventDefault(); 
+        if (event.deltaX > 0){
+            loadNextProject(); 
+        }else if (event.deltaX < 0){
+            loadPastProject(); 
+        }
+        console.log("delta y: "+event.deltaX); 
+    }
+   
+    // event.deltaY; 
+}
+
+
 
 
 //On arrows
