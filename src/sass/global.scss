@@ -30,6 +30,9 @@ html, body{
         line-height: $body-line-height*0.8;
     }
 
+    //Fixes change in font rendering for Safari
+    -webkit-font-smoothing: subpixel-antialiased;
+
 
 }
 
