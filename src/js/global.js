@@ -489,14 +489,15 @@ function showProjectInfo(){
 document.addEventListener("wheel", handleMouseWheel, false);
 
 function handleMouseWheel(event){
-    if (Math.abs(event.deltaX - event.deltaY) > 0){
+    if (event.deltaY === 0){
         event.preventDefault(); 
-        if (event.deltaX > 0){
+        if (event.deltaX > 40){
             loadNextProject(); 
-        }else if (event.deltaX < 0){
+        }else if (event.deltaX < -40){
             loadPastProject(); 
         }
-        console.log("delta y: "+event.deltaX); 
+        console.log("delta x: "+event.deltaX); 
+        console.log("delta y: "+event.deltaY);
     }
    
     // event.deltaY; 
