@@ -1,11 +1,26 @@
 Tim questions
 -------------
-+ Weird to have "text" and show a video? Put INFO/IMAGES, take away OVERVIEW from the top and put it at the place of INFORMATION?  
+
 
 
 
 TODO
 -------
+
++ In the about page - Curriculam Vitae • Twitter • Email
++ close link fades out (maybe didn't push from fedora)
++ put higher res image for technology patch of sky
++ check if possible to add more images for museum 
++ project order - pos; programming objects; message box; Museum; Stone Pad
+
++ On about
+MSc Electronics Engineer graduate
+
+Creative technologist with a focus in design and prototype of digital interactive products. 
+
+
+
+
 + display: none to info when showing image
 + bugfix: when closing abuout goes to patch of sky
 
