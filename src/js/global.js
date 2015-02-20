@@ -38,8 +38,6 @@ $(function() {
 
 function setContentFromHash(){
     var currentHash = getLocationHash(); 
-
-    console.log("currentHash: "+currentHash); 
     if (currentHash === "About"){
         showAboutSection(false); 
         return; 
@@ -491,15 +489,15 @@ function showProjectInfo(){
 document.addEventListener("wheel", handleMouseWheel, false);
 
 function handleMouseWheel(event){
-    if (event.deltaY === 0){
-        event.preventDefault(); 
-        if (event.deltaX > 40){
-            loadNextProject(); 
-        }else if (event.deltaX < -40){
-            loadPastProject(); 
+    if (getLocationHash() !== "About"){
+        if (event.deltaY === 0){
+            event.preventDefault(); 
+            if (event.deltaX > 40){
+                loadNextProject(); 
+            }else if (event.deltaX < -40){
+                loadPastProject(); 
+            }
         }
-        console.log("delta x: "+event.deltaX); 
-        console.log("delta y: "+event.deltaY);
     }
    
     // event.deltaY; 
@@ -513,11 +511,13 @@ document.addEventListener("keyup", handleKeyUp, false);
 
 function handleKeyUp(event){
     // event.preventDefault();   
-    if (event.keyCode === 37){
-        loadPastProject(); 
-    }
-    else if (event.keyCode === 39){
-        loadNextProject(); 
+    if (getLocationHash() !== "About"){
+        if (event.keyCode === 37){
+            loadPastProject(); 
+        }
+        else if (event.keyCode === 39){
+            loadNextProject(); 
+        }
     }
 } 
 
@@ -546,11 +546,13 @@ function handleTouchEnd(event) {
         var scrollingDiffX = Math.abs(touches[0].pageX - scrollingStartX); 
         var scrollingDiffY = Math.abs(touches[0].pageY - scrollingStartY); 
         if (scrollingDiffX > scrollingDiffY){
-            if (touches[0].pageX > scrollingStartX + scrollingOffsetX){
-                loadPastProject(); 
-            }
-            else if (touches[0].pageX < scrollingStartX - scrollingOffsetX){
-                loadNextProject(); 
+            if (getLocationHash() !== "About"){
+                if (touches[0].pageX > scrollingStartX + scrollingOffsetX){
+                    loadPastProject(); 
+                }
+                else if (touches[0].pageX < scrollingStartX - scrollingOffsetX){
+                    loadNextProject(); 
+                }
             }
         }
     }

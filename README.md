@@ -1,6 +1,6 @@
 Tim questions
 -------------
-+ Titles of sections (I'd take away Overview, and Information seems reduntant, since it's the name of the current section anyway)
++ Weird to have "text" and show a video? Put INFO/IMAGES, take away OVERVIEW from the top and put it at the place of INFORMATION?  
 
 
 
