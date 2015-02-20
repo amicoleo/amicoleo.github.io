@@ -1233,11 +1233,12 @@ function showAboutSection(bSetFromDOM){
                     // Animation complete.
                     bAboutSection = true; 
                     bContentTransition = false; 
+                    lastLocationHash = getLocationHash();
                     if (bSetFromDOM){
                         bHashSetFromDOM = true; 
                         setLocationHash(aboutSection.hash); 
                     }   
-                    lastLocationHash = getLocationHash();
+                    
                     
 
                     //This is for having a project behing the about section, when reached the page from a link
