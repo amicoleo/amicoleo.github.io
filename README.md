@@ -6,9 +6,13 @@ Tim questions
 
 TODO
 -------
-+ Update bg color
-+ About in vertical 
-+ mobile with menu going up
++ display: none to info when showing image
++ bugfix: when closing abuout goes to patch of sky
+
+
++ Update bg color - OK
++ About in vertical - OK 
++ mobile with menu going up - OK
 	+ overflow-y: hidden when launching about
 	+ overflow-y: hidden when on image
 
