@@ -428,6 +428,7 @@ function setupProjectInfo(){
             }
         }
     }
+     $(".viewport-section#project-info").css("display", "inline"); 
     $(".viewport-section#project-info").animate({ 
     "opacity": "1.0"
     }, 1000, function() {
@@ -463,7 +464,7 @@ function showProjectInfo(){
                 "opacity": "0.0"
                 }, 1000, function() {
                     $("#background-logo-img").css("opacity", "1.0"); 
-                    $(".viewport-section#project-info").css("visibility", "hidden"); 
+                    $(".viewport-section#project-info").css("display", "none"); 
             }); 
         }
     }
