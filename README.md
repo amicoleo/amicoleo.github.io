@@ -8,7 +8,7 @@ TODO
 -------
 
 + add images links and links to metatags
-+ project order - pos; programming objects; message box; Museum; Stone Pad
++ project order - pos; programming objects; message box; Museum; Stone Pad - OK
 + more photos for museum of future - of the general exhibition at least - OK
 + chech text for typos - OK
 + add metatags - OK
