@@ -1108,6 +1108,7 @@ var currentProjectImageId = 0;
 var contentTransitionTime = 1500;
 var contentHomePageAppearTime = 2500; 
 var contentHomePageWaitTime = 500; 
+var aboutLinkTransitionTime = 500; 
 
 var bContentTransition = false; 
 
@@ -1236,8 +1237,6 @@ function showAboutSection(bSetFromDOM){
                         bHashSetFromDOM = true; 
                         setLocationHash(aboutSection.hash); 
                     }   
-                    
-                    
 
                     //This is for having a project behing the about section, when reached the page from a link
                     if (lastLocationHash === aboutSection.hash){
@@ -1247,34 +1246,34 @@ function showAboutSection(bSetFromDOM){
                     $("body").css("overflow-y", "hidden"); 
                     $("#about-link-close").animate(
                         {"opacity": "1.0"}, 
-                        contentTransitionTime
+                        aboutLinkTransitionTime
                         ); 
             });     
 
         }else{
-            $("#about-container").animate(
-                {"top": "-100%"}, 
-                contentTransitionTime, 
-                function() {
-                    // Animation complete.
-                    bAboutSection = false; 
-                    bContentTransition = false; 
+            $("#about-link-close").animate(
+                {"opacity": "0.0"}, 
+                aboutLinkTransitionTime, 
+                function(){
+                    $("#about-container").animate(
+                        {"top": "-100%"}, 
+                        contentTransitionTime, 
+                        function() {
+                            // Animation complete.
+                            bAboutSection = false; 
+                            bContentTransition = false; 
 
-                    if (bSetFromDOM){
-                        setLocationHash(lastLocationHash); 
-                        bHashSetFromDOM = true; 
-                    }
+                            if (bSetFromDOM){
+                                setLocationHash(lastLocationHash); 
+                                bHashSetFromDOM = true; 
+                            }
 
-                    $("body").css("overflow-y", "visible"); 
-                    $("#about-link-close").css("opacity", "0.0"); 
-            });     
-            
+                            $("body").css("overflow-y", "visible"); 
+                            $("#about-link-close").css("opacity", "0.0"); 
+                    });     
+
+                });    
         }
-        
-         
-
-        
-
     }
 
 }

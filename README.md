@@ -11,9 +11,8 @@ TODO
 + close link fades out (maybe didn't push from fedora)
 + put higher res image for technology patch of sky
 + check if possible to add more images for museum 
++ when going to project info, back arrow not working - when loading new project need to destroy what there was before - OK
 + project order - pos; programming objects; message box; Museum; Stone Pad
-
-+ when going to project info, back arrow not working - when loading new project need to destroy what there was before
 
 + On about
 MSc Electronics Engineer graduate - OK
