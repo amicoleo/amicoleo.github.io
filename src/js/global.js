@@ -208,6 +208,7 @@ function loadProject(projectId, bHomePage){
         $(".viewport-section#project-images").css("opacity", "0.0"); 
     }
     $(".viewport-section#project-images" ).load(projects[projectId].fileName+" .img-project-container", function() {
+        $(".viewport-section#project-info").remove(); 
         setupImages($(".viewport-section#project-images"), function(){
             if (bHomePage){
                 homepageFadeIn(); 

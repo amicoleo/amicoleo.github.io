@@ -13,10 +13,13 @@ TODO
 + check if possible to add more images for museum 
 + project order - pos; programming objects; message box; Museum; Stone Pad
 
-+ On about
-MSc Electronics Engineer graduate
++ when going to project info, back arrow not working - when loading new project need to destroy what there was before
 
-Creative technologist with a focus in design and prototype of digital interactive products. 
++ On about
+MSc Electronics Engineer graduate - OK
+Creative technologist with a focus in design and prototype of digital interactive products. - OK
+
+
 
 
 
