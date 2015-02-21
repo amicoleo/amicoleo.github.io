@@ -1310,8 +1310,11 @@ function loadProject(projectId, bHomePage){
     if (bHomePage){
         $(".viewport-section#project-images").css("opacity", "0.0"); 
     }
+    console.log("project id: "+projectId); 
     $(".viewport-section#project-images" ).load(projects[projectId].fileName+" .img-project-container", function() {
         $(".viewport-section#project-info").remove(); 
+        $(".viewport-section#project-images").css("visibility", "visible"); 
+        $(".viewport-section#project-images").css("opacity", "1.0");
         setupImages($(".viewport-section#project-images"), function(){
             if (bHomePage){
                 homepageFadeIn(); 
