@@ -9,7 +9,7 @@ TODO
 
 + add images links and links to metatags
 + project order - pos; programming objects; message box; Museum; Stone Pad
-+ more photos for museum of future - of the general exhibition at least
++ more photos for museum of future - of the general exhibition at least - OK
 + chech text for typos - OK
 + add metatags - OK
 + In the about page - Curriculam Vitae • Twitter • Email - OK
