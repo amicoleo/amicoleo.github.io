@@ -28,6 +28,12 @@ var aboutSection = {
     hash: "About",
 }; 
 
+$(".viewport-section#project-images").css("visibility", "hidden"); 
+$(".viewport-section#project-images").css("opacity", "0.0"); 
+$(".nav-menu").css("visibility", "hidden"); 
+$(".nav-menu").css("opacity", "0.0"); 
+
+
 $(function() {
     updateImgSrc(); 
     setContentFromHash();    
@@ -46,19 +52,25 @@ function setContentFromHash(){
     }
     else{
         if (bAboutSection){
+            $(".nav-menu").css("visibility", "visible"); 
+            $(".nav-menu").css("opacity", "1.0"); 
+            $(".viewport-section#project-images").css("visibility", "visible"); 
             showAboutSection(false); //for closing about section
         }
         for (var id in projects){
             if (projects[id].hash.toUpperCase() === currentHash.toUpperCase()){
                 currentProjectId = parseInt(id); 
+                $(".nav-menu").css("visibility", "visible"); 
+                $(".nav-menu").css("opacity", "1.0"); 
+                $(".viewport-section#project-images").css("visibility", "visible"); 
                 loadProject(currentProjectId, false); 
                 return; 
             }
         }
     }
 
-    $(".viewport-section#project-images").css("visibility", "hidden"); 
-    $(".nav-menu").css("visibility", "hidden"); 
+    // $(".viewport-section#project-images").css("visibility", "hidden"); 
+    // $(".nav-menu").css("visibility", "hidden"); 
     loadProject(0, true); //Load first project - which is home 
 }
 
@@ -205,12 +217,13 @@ function loadProject(projectId, bHomePage){
 
     if (bHomePage){
         $(".viewport-section#project-images").css("opacity", "0.0"); 
+    }else{
+        $(".viewport-section#project-images").css("opacity", "1.0");
     }
     console.log("project id: "+projectId); 
     $(".viewport-section#project-images" ).load(projects[projectId].fileName+" .img-project-container", function() {
         $(".viewport-section#project-info").remove(); 
         $(".viewport-section#project-images").css("visibility", "visible"); 
-        $(".viewport-section#project-images").css("opacity", "1.0");
         setupImages($(".viewport-section#project-images"), function(){
             if (bHomePage){
                 homepageFadeIn(); 
