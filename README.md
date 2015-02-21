@@ -9,8 +9,8 @@ TODO
 
 + add images links and links to metatags
 + project order - pos; programming objects; message box; Museum; Stone Pad
-+ chech text for typos
 + more photos for museum of future - of the general exhibition at least
++ chech text for typos - OK
 + add metatags - OK
 + In the about page - Curriculam Vitae • Twitter • Email - OK
 + put higher res image for technology patch of sky - OK
