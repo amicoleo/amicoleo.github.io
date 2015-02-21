@@ -7,11 +7,15 @@ Tim questions
 TODO
 -------
 
++ add images links and links to metatags
++ project order - pos; programming objects; message box; Museum; Stone Pad
++ chech text for typos
++ more photos for museum of future - of the general exhibition at least
++ add metatags - OK
 + In the about page - Curriculam Vitae • Twitter • Email - OK
 + put higher res image for technology patch of sky - OK
 + check if possible to add more images for museum - OK
 + when going to project info, back arrow not working - when loading new project need to destroy what there was before - OK
-+ project order - pos; programming objects; message box; Museum; Stone Pad
 + close link fades out (maybe didn't push from fedora) - OK
 
 + On about
