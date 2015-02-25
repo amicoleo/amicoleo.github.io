@@ -7,7 +7,14 @@ Tim questions
 TODO
 -------
 
++ responsive size for hor scrolling val
++ no ver scroll if not info sec
+
 + add images links and links to metatags
+
++ Update about
+	Creative technologist with a focus in digital interactive products, employing software and electronics to prototype and test possible future scenarios of everyday life.
+
 + project order - pos; programming objects; message box; Museum; Stone Pad - OK
 + more photos for museum of future - of the general exhibition at least - OK
 + chech text for typos - OK
