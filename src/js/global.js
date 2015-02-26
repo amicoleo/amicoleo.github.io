@@ -3,6 +3,7 @@ var currentProjectImageId = 0;
 
 
 var contentTransitionTime = 1500;
+var imageTransitionTime = 2000;
 var contentHomePageAppearTime = 2500; 
 var contentHomePageWaitTime = 500; 
 var aboutLinkTransitionTime = 500; 
@@ -411,14 +412,14 @@ function loadNextImage(){
         updateImgNavButtons($(".viewport-section#project-images"), nextProjectImageId); 
         $( ".img-container > a > #"+currentProjectImageId ).animate({ 
             "opacity": "0.0"
-            }, 1000);
+            }, imageTransitionTime, "jswing");
         var imgDiv =  $( ".img-container  a > #"+nextProjectImageId); 
         $( imgDiv ).attr("src", imgDiv.attr(imgSrc)).imagesLoaded(
             function(){
                 imgDiv.css("visibility", "visible"); 
                 $(imgDiv).animate({ 
                     "opacity": "1.0"
-                    }, 1000, function(){
+                    }, imageTransitionTime, "jswing", function(){
                         $("#background-logo-img").css("opacity", "1.0"); 
                         bImageTransition = false; 
                         currentProjectImageId = nextProjectImageId; 
@@ -546,7 +547,9 @@ var bTouchScrolling = false;
 var scrollingStartX;
 var scrollingStartY;
 function handleTouchMove(event) {
-    // event.preventDefault();
+    if (!bProjectInfo){
+        event.preventDefault();
+    }
     var touches = event.changedTouches;
     if (!bTouchScrolling){
         bTouchScrolling = true;
