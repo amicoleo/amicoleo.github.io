@@ -1,13 +1,12 @@
-Tim questions
--------------
-
-
-
-
 TODO
 -------
 
-+ no ver scroll if not info sec
++ change color on link:active (light blue)
++ make sure its possible to touch buttons on my phone
++ ver scrolling on project info not working on my phone - OK
+	commented overflow-x: hidden; in body - check if still good for other more popular devices (ipad)
+
+
 + add images links and links to metatags
 
 + Update about - OK

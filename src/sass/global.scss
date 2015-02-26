@@ -17,8 +17,7 @@ $body-line-height: 16px;
 html, body{
 	height: 100%; 
 	width: 100%; 
-    overflow-x: hidden; 
-    // overflow: hidden; 
+    // overflow-x: hidden; //TODO - this not working on old android phones - uncomment if problematic for 
     background-color: $light-color; 
     color: $dark-color; 
     position: relative; 
