@@ -134,31 +134,35 @@ function showAboutSection(bSetFromDOM){
     if (!bContentTransition){
         bContentTransition = true;
         if (!bAboutSection){
+            $("#about-link-open").animate(
+                {"opacity": "0.0"}, 
+                aboutLinkTransitionTime, function(){
+                    $("#about-container").animate(
+                        {"top": "0"}, 
+                        contentTransitionTime, 
+                        function() {
+                            // Animation complete.
+                            bAboutSection = true; 
+                            bContentTransition = false; 
+                            lastLocationHash = getLocationHash();
+                            if (bSetFromDOM){
+                                bHashSetFromDOM = true; 
+                                setLocationHash(aboutSection.hash); 
+                            }   
 
-            $("#about-container").animate(
-                {"top": "0"}, 
-                contentTransitionTime, 
-                function() {
-                    // Animation complete.
-                    bAboutSection = true; 
-                    bContentTransition = false; 
-                    lastLocationHash = getLocationHash();
-                    if (bSetFromDOM){
-                        bHashSetFromDOM = true; 
-                        setLocationHash(aboutSection.hash); 
-                    }   
-
-                    //This is for having a project behing the about section, when reached the page from a link
-                    if (lastLocationHash === aboutSection.hash){
-                        lastLocationHash = projects[0].hash; 
-                        loadProject(0); 
-                    }
-                    $("body").css("overflow-y", "hidden"); 
-                    $("#about-link-close").animate(
-                        {"opacity": "1.0"}, 
-                        aboutLinkTransitionTime
-                        ); 
-            });     
+                            //This is for having a project behing the about section, when reached the page from a link
+                            if (lastLocationHash === aboutSection.hash){
+                                lastLocationHash = projects[0].hash; 
+                                loadProject(0); 
+                            }
+                            $("body").css("overflow-y", "hidden"); 
+                            $("#about-link-close").animate(
+                                {"opacity": "1.0"}, 
+                                aboutLinkTransitionTime
+                                ); 
+                    });  
+            }); 
+   
 
         }else{
             $("#about-link-close").animate(
@@ -179,7 +183,10 @@ function showAboutSection(bSetFromDOM){
                             }
 
                             $("body").css("overflow-y", "visible"); 
-                            $("#about-link-close").css("opacity", "0.0"); 
+                            $("#about-link-open").animate(
+                                {"opacity": "1.0"}, 
+                                aboutLinkTransitionTime
+                                ); 
                     });     
 
                 });    
@@ -489,7 +496,6 @@ function showProjectInfo(){
 
 
 // function updateImgNavButtons(){
-
 //     if (currentProjectImageId == 0){
 //         disableLink($(".project-container > .img-footer > #left")); 
 //     }else{
