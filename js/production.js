@@ -1188,7 +1188,6 @@ function getLocationHash(){
 }
 
 window.onhashchange = function() {
-    console.log("bHashSetFromDOM: "+bHashSetFromDOM); 
      if (!bHashSetFromDOM){
         setContentFromHash(); 
     }else{
@@ -1331,7 +1330,6 @@ function loadProject(projectId, bHomePage){
     }else{
         $(".viewport-section#project-images").css("opacity", "1.0");
     }
-    console.log("project id: "+projectId); 
     $(".viewport-section#project-images" ).load(projects[projectId].fileName+" .img-project-container", function() {
         $(".viewport-section#project-info").remove(); 
         $(".viewport-section#project-images").css("visibility", "visible"); 
@@ -1475,7 +1473,6 @@ function updateImgSrc(){
         imgSrc = "data-original-m"; 
     }else{
         imgSrc = "data-original"; 
-        console.log("original"); 
     }
 }
 
@@ -1484,7 +1481,6 @@ function setupImages(parentDiv, finishedLoadingCallback){
     currentProjectImageId = 0; 
     var imgDiv = parentDiv.find(" .img-container > a > #0"); 
 
-    console.log("ciao: "+parentDiv.find(".img-container > a > #0").attr("id")); 
     imgDiv.css("visibility", "visible"); 
     imgDiv.css( "opacity", "1.0" );
 
@@ -1533,7 +1529,6 @@ function loadNextImage(){
                         $("#background-logo-img").css("opacity", "1.0"); 
                         bImageTransition = false; 
                         currentProjectImageId = nextProjectImageId; 
-                        console.log("currentProjectImageId - after next image: "+currentProjectImageId); 
             });
         });
     }
