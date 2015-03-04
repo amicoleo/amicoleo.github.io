@@ -18,6 +18,7 @@ html, body{
 	height: 100%; 
 	width: 100%; 
     // overflow-x: hidden; //TODO - this not working on old android phones - uncomment if problematic for 
+    // overflow: hidden;
     background-color: $light-color; 
     color: $dark-color; 
     position: relative; 
@@ -35,6 +36,9 @@ html, body{
 
 }
 
+body {
+    overflow: hidden; 
+}
 
 #container {
     height: 100%; 
