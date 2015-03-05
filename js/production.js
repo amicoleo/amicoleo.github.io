@@ -1107,7 +1107,7 @@ var currentProjectImageId = 0;
 
 var contentTransitionTime = 1500;
 var imageTransitionTime = 2000;
-var contentHomePageAppearTime = 2500; 
+var contentHomePageAppearTime = 2000; 
 var contentHomePageWaitTime = 500; 
 var aboutLinkTransitionTime = 500; 
 
@@ -1313,12 +1313,6 @@ function updateProjectNavButtons(){
     }else{
         $(".button-menu.back-button-menu").removeClass("disabled");
    }
-
-   // if (currentProjectId+1 === projects.length || currentProjectId-1 === -1){
-   //      $(".extra-button-menu").addClass("disabled");  
-   // }else{
-   //      $(".extra-button-menu").removeClass("disabled"); 
-   // }
 }
 
 function loadProject(projectId, bHomePage){
