@@ -154,7 +154,6 @@ function showAboutSection(bSetFromDOM){
                                 lastLocationHash = projects[0].hash; 
                                 loadProject(0); 
                             }
-                            // $("body").css("overflow-y", "hidden"); 
                             $("#about-link-close").animate(
                                 {"opacity": "1.0"}, 
                                 aboutLinkTransitionTime
@@ -181,7 +180,6 @@ function showAboutSection(bSetFromDOM){
                                 bHashSetFromDOM = true; 
                             }
 
-                            // $("body").css("overflow-y", "visible"); 
                             $("#about-link-open").animate(
                                 {"opacity": "1.0"}, 
                                 aboutLinkTransitionTime
@@ -434,15 +432,11 @@ function setupProjectInfo(){
             if (!$(".ps-scrollbar-y-rail").length){//If do not exist
                 $(".text-container-wrapper").perfectScrollbar(); //create
                 $(".ps-scrollbar-y-rail").css("visibility", "visible"); 
-                $("body").css("overflow", "hidden"); 
             }
             else{
                 $(".text-container-wrapper").perfectScrollbar("update"); //otherwise update
                 $(".ps-scrollbar-y-rail").css("visibility", "visible"); 
-                $("body").css("overflow", "visible"); 
-
             }
-        }
     }
     $(".viewport-section#project-info").css("display", "inline"); 
     $(".viewport-section#project-info").animate({ 
@@ -472,7 +466,6 @@ function showProjectInfo(){
                 setupProjectInfo(); 
             }
         }else{
-            $("body").css("overflow", "hidden"); 
             $(".viewport-section#project-images").css("visibility", "visible"); 
             $(".viewport-section#project-images").animate({"opacity": "1.0"}, 1000);
             $("#info-link").html("TEXT"); 

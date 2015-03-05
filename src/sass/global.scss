@@ -17,8 +17,6 @@ $body-line-height: 16px;
 html, body{
 	height: 100%; 
 	width: 100%; 
-    // overflow-x: hidden; //TODO - this not working on old android phones - uncomment if problematic for 
-    // overflow: hidden;
     background-color: $light-color; 
     color: $dark-color; 
     position: relative; 
@@ -29,21 +27,19 @@ html, body{
         font-size: $body-font-size*0.8; 
         line-height: $body-line-height*0.8;
     }
+    overflow-x: hidden; 
 
     //Fixes change in font rendering for Safari
     -webkit-font-smoothing: subpixel-antialiased;
 
 
+
 }
 
-body {
-    overflow: hidden; 
-}
 
 #container {
     height: 100%; 
 	width: 100%; 
-    overflow: hidden; 
 }
 
 #bg-container{
@@ -196,7 +192,6 @@ section{
     }
     top: 55%;
     left: 50%;
-    overflow: hidden; 
     transform: translateY(-50%) translateX(-50%); 
     .img-container{
         position: relative;
@@ -234,7 +229,7 @@ section{
     height: 100%; 
     width: 100%; 
     overflow: hidden;
-        @media screen and (max-width: $break-m){
+    @media screen and (max-width: $break-m){
         overflow: visible; 
     }
     background-color: $light-color;  
