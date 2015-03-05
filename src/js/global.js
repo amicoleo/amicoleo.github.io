@@ -218,6 +218,7 @@ function loadProject(projectId, bHomePage){
 
     if (bHomePage){
         $(".viewport-section#project-images").css("opacity", "0.0"); 
+        $(".nav-menu").css("opacity","0.0"); 
     }else{
         $(".viewport-section#project-images").css("opacity", "1.0");
     }
