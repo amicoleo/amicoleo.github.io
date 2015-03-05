@@ -127,6 +127,9 @@ section{
     z-index: 98; 
 
     width: 30%; 
+    @media screen and (max-width: $break-s) and (orientation : portrait){
+        width: 60%; 
+    }
 }
 .viewport-section{
 	margin-left: 0%; 
