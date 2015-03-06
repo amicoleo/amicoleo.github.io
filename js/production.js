@@ -1236,6 +1236,7 @@ function showAboutSection(bSetFromDOM){
     if (!bContentTransition){
         bContentTransition = true;
         if (!bAboutSection){
+            $(".text-container-wrapper").css("overflow", "hidden"); 
             $("#about-link-open > div").animate(
                 {"opacity": "0.0"}, 
                 aboutLinkTransitionTime, function(){
@@ -1266,6 +1267,7 @@ function showAboutSection(bSetFromDOM){
    
 
         }else{
+            $(".text-container-wrapper").css("overflow", "visible"); 
             $("#about-link-close > div").animate(
                 {"opacity": "0.0"}, 
                 aboutLinkTransitionTime, 
