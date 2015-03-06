@@ -437,6 +437,7 @@ function setupProjectInfo(){
                 $(".text-container-wrapper").perfectScrollbar("update"); //otherwise update
                 $(".ps-scrollbar-y-rail").css("visibility", "visible"); 
             }
+        }
     }
     $(".viewport-section#project-info").css("display", "inline"); 
     $(".viewport-section#project-info").animate({ 
