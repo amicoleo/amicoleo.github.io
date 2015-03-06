@@ -133,7 +133,7 @@ function showAboutSection(bSetFromDOM){
     if (!bContentTransition){
         bContentTransition = true;
         if (!bAboutSection){
-            $("#about-link-open").animate(
+            $("#about-link-open > div").animate(
                 {"opacity": "0.0"}, 
                 aboutLinkTransitionTime, function(){
                     $("#about-container").animate(
@@ -154,7 +154,7 @@ function showAboutSection(bSetFromDOM){
                                 lastLocationHash = projects[0].hash; 
                                 loadProject(0); 
                             }
-                            $("#about-link-close").animate(
+                            $("#about-link-close > div").animate(
                                 {"opacity": "1.0"}, 
                                 aboutLinkTransitionTime
                                 ); 
@@ -163,7 +163,7 @@ function showAboutSection(bSetFromDOM){
    
 
         }else{
-            $("#about-link-close").animate(
+            $("#about-link-close > div").animate(
                 {"opacity": "0.0"}, 
                 aboutLinkTransitionTime, 
                 function(){
@@ -180,7 +180,7 @@ function showAboutSection(bSetFromDOM){
                                 bHashSetFromDOM = true; 
                             }
 
-                            $("#about-link-open").animate(
+                            $("#about-link-open > div").animate(
                                 {"opacity": "1.0"}, 
                                 aboutLinkTransitionTime
                                 ); 

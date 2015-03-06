@@ -269,7 +269,10 @@ section{
     }
     #about-link-close{
         color: $light-color; 
-        opacity: 0.0; 
+        div {
+            opacity: 0.0; 
+        }
+        
     }
     .project-container{
         background-color: $dark-color;  
