@@ -1106,7 +1106,7 @@ var currentProjectImageId = 0;
 
 
 var contentTransitionTime = 1500;
-var imageTransitionTime = 1700;
+var imageTransitionTime = 1000;
 var contentHomePageAppearTime = 2000; 
 var contentHomePageWaitTime = 500; 
 var aboutLinkTransitionTime = 500; 
@@ -1236,7 +1236,7 @@ function showAboutSection(bSetFromDOM){
     if (!bContentTransition){
         bContentTransition = true;
         if (!bAboutSection){
-            $(".text-container-wrapper").css("overflow", "hidden"); 
+            // 
             $("#about-link-open > div").animate(
                 {"opacity": "0.0"}, 
                 aboutLinkTransitionTime, function(){
@@ -1248,6 +1248,9 @@ function showAboutSection(bSetFromDOM){
                             bAboutSection = true; 
                             bContentTransition = false; 
                             lastLocationHash = getLocationHash();
+                            if ($(window).width() < breakM){
+                                $("body").css("overflow", "hidden"); 
+                            }
                             if (bSetFromDOM){
                                 bHashSetFromDOM = true; 
                                 setLocationHash(aboutSection.hash); 
@@ -1267,7 +1270,7 @@ function showAboutSection(bSetFromDOM){
    
 
         }else{
-            $(".text-container-wrapper").css("overflow", "visible"); 
+            // $(".text-container-wrapper").css("overflow", "visible"); 
             $("#about-link-close > div").animate(
                 {"opacity": "0.0"}, 
                 aboutLinkTransitionTime, 
@@ -1279,7 +1282,9 @@ function showAboutSection(bSetFromDOM){
                             // Animation complete.
                             bAboutSection = false; 
                             bContentTransition = false; 
-
+                            if ($(window).width() < breakM){
+                                $("body").css("overflow", "visible"); 
+                            }
                             if (bSetFromDOM){
                                 setLocationHash(lastLocationHash); 
                                 bHashSetFromDOM = true; 

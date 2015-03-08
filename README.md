@@ -2,10 +2,11 @@ TODO
 -------
 + faster image change - OK
 + centralize image for mobile - OK
-+ on mobile view make text left/right margin same of the menu margins
++ On mobile view text left/right margin same of the menu margins - ok
 
 
 + when showing the text, opening the about and then closing it, the scrollbar appear
++ about should go down from top of the viewport, not document
 
 
 + Left align everything (also CV, Twitter, Email) 
