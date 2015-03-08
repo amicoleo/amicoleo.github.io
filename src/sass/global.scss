@@ -13,7 +13,7 @@ $img-footer-margin: 10px;
 $body-font-size: 14px; 
 $body-line-height: 16px; 
 
-p::selection, a::selection{
+*::selection{
     color: $light-color; 
     background-color: $dark-color; 
 }
