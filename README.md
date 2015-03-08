@@ -5,8 +5,7 @@ TODO
 + On mobile view text left/right margin same of the menu margins - ok
 
 
-+ when showing the text, opening the about and then closing it, the scrollbar appear
-+ about should go down from top of the viewport, not document
++ when showing the text, opening the about and then closing it, the scrollbar appear - ok
 
 
 + Left align everything (also CV, Twitter, Email) 
