@@ -20,7 +20,7 @@ var projects = [
         {fileName: "../PatchOfSky.html", hash: "PatchOfSky", name: "PATCH OF SKY"},
         {fileName: "../ProgrammingObjects.html", hash: "ProgrammingObjects", name: "PROGRAMMING OBJECTS"}, 
         {fileName: "../MessageBox.html", hash: "MessageBox", name: "MESSAGE BOX"},
-        {fileName: "../MFGS.html", hash: "MuseumFutureGovernmentServices", name: "Museum of the Future Government Services"},
+        {fileName: "../MFGS.html", hash: "MuseumFutureGovernmentServices", name: "Museum of Future Government Services"},
         {fileName: "../StonePad.html", hash: "StonePad", name: "STONE PAD"}, //[ProjectHTMLFilename, ProjectHash]
 
     ];

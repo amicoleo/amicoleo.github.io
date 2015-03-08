@@ -17,7 +17,7 @@ Development........Leonardo Amico
 + Put link to Tim
 
 
-+ When refreshing the about page, there's no about anymore
++ When refreshing the about page, there's no about anymore - OK
 
 + Change the title of the "Museum of The Future... " to "Museum of Future..."
 
