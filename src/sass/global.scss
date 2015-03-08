@@ -72,6 +72,7 @@ a:hover {
 
 
 .nav-menu{
+    opacity: 0.0; 
     a{
         display: inline; 
         text-decoration: none; 
@@ -151,10 +152,6 @@ section{
         text-transform: uppercase; 
     }
 }
-.nav-menu.collapsed{
-    opacity: 0.0; 
-    visibility: hidden;
-}
 
 
 #right-side{
@@ -180,6 +177,8 @@ section{
 }
 
 .viewport-section#project-images{
+    visibility: hidden; 
+    opacity: 0.0; 
     
 }
 

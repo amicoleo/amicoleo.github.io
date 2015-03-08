@@ -1132,10 +1132,6 @@ var aboutSection = {
     hash: "About",
 }; 
 
-$(".viewport-section#project-images").css("visibility", "hidden"); 
-$(".viewport-section#project-images").css("opacity", "0.0"); 
-$(".nav-menu").css("visibility", "hidden"); 
-$(".nav-menu").css("opacity", "0.0"); 
 
 
 $(function() {
@@ -1150,21 +1146,19 @@ $(function() {
 function setContentFromHash(){
     var currentHash = getLocationHash(); 
     if (currentHash === "About"){
+        $(".nav-menu").css("opacity", "1.0"); 
         showAboutSection(false); 
         return; 
         
     }
     else{
         if (bAboutSection){
-            $(".nav-menu").css("visibility", "visible"); 
-            $(".nav-menu").css("opacity", "1.0"); 
             $(".viewport-section#project-images").css("visibility", "visible"); 
             showAboutSection(false); //for closing about section
         }
         for (var id in projects){
             if (projects[id].hash.toUpperCase() === currentHash.toUpperCase()){
                 currentProjectId = parseInt(id); 
-                $(".nav-menu").css("visibility", "visible"); 
                 $(".nav-menu").css("opacity", "1.0"); 
                 $(".viewport-section#project-images").css("visibility", "visible"); 
                 loadProject(currentProjectId, false); 
@@ -1173,8 +1167,6 @@ function setContentFromHash(){
         }
     }
 
-    // $(".viewport-section#project-images").css("visibility", "hidden"); 
-    // $(".nav-menu").css("visibility", "hidden"); 
     loadProject(0, true); //Load first project - which is home 
 }
 
@@ -1354,7 +1346,6 @@ function homepageFadeIn(){
     });
 
     $(".nav-menu").css("opacity","0.0");    
-    $(".nav-menu").css("visibility","visible"); 
     $(".nav-menu").delay(contentHomePageWaitTime).animate(
         {"opacity": "1.0"}, 
         contentHomePageAppearTime

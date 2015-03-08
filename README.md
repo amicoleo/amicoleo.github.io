@@ -15,6 +15,8 @@ Website design.....Tim Wan
 Development........Leonardo Amico 
 
 + Put link to Tim
+
+
 + When refreshing the about page, there's no about anymore
 
 + Change the title of the "Museum of The Future... " to "Museum of Future..."
