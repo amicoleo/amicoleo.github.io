@@ -19,9 +19,11 @@ Development........Leonardo Amico
 
 + When refreshing the about page, there's no about anymore - OK
 
-+ Change the title of the "Museum of The Future... " to "Museum of Future..."
++ Change the title of the "Museum of The Future... " to "Museum of Future..." - OK
 
 + more fluid effect when scrolling the text on touch devices
+
++ text highlight color
 
 
 + change color on link:active (light blue) - OK

@@ -13,6 +13,10 @@ $img-footer-margin: 10px;
 $body-font-size: 14px; 
 $body-line-height: 16px; 
 
+p::selection, a::selection{
+    color: $light-color; 
+    background-color: $dark-color; 
+}
 
 html, body{
 	height: 100%; 
@@ -37,6 +41,7 @@ html, body{
 }
 
 
+
 #container {
     height: 100%; 
 	width: 100%; 
@@ -59,7 +64,15 @@ html, body{
     z-index: 101; 
     background-color: $dark-color; 
     color: $light-color; 
+
+    p::selection, a::selection{
+        color: $dark-color; 
+        background-color: $light-color; 
+    }
+
 }
+
+
 
 a, a:visited, a:active, a:focus{ 
     text-decoration: underline; 
