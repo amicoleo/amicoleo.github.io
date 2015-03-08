@@ -1,5 +1,26 @@
 TODO
 -------
++ faster image change - OK
++ centralize image for mobile - OK
++ on mobile view make text left/right margin same of the menu margins
+
+
++ when showing the text, opening the about and then closing it, the scrollbar appear
+
+
++ Left align everything (also CV, Twitter, Email) 
++ Add to the bottom
+
+Website design.....Tim Wan
+Development........Leonardo Amico 
+
++ Put link to Tim
++ When refreshing the about page, there's no about anymore
+
++ Change the title of the "Museum of The Future... " to "Museum of Future..."
+
++ more fluid effect when scrolling the text on touch devices
+
 
 + change color on link:active (light blue) - OK
 + make sure its possible to touch buttons on my phone - OK

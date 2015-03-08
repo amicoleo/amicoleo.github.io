@@ -239,21 +239,30 @@ section{
 
         }
         @media screen and (max-width: $break-m){
-            top: 20%; 
             height: 80%; 
+            top: 100px + $menu-margin; //Hardcoded with height of vertical ABOUT link
+        }
+        @media screen and (max-width: $break-s){
+            top: 64px + $menu-margin; 
         }
 
 }
 
 .text-container{
     position: absolute;
-    padding-top: $menu-margin; 
     left: 50%;
     transform: translateX(-50%); 
     width: 40%; 
+    padding: 0; 
+    padding-top: $menu-margin; 
     padding-bottom: $menu-margin;
     @media screen and (max-width: $break-m){
-        width: 80%;  
+        width: 80%; 
+    }
+    @media screen and (max-width: $break-s){
+        width: 100%;  
+        padding-left: $menu-margin;
+        padding-right: $menu-margin;
         padding-top: 0; 
         // top: 10%; 
     }
