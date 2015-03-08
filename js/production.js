@@ -1106,7 +1106,7 @@ var currentProjectImageId = 0;
 
 
 var contentTransitionTime = 1500;
-var imageTransitionTime = 2000;
+var imageTransitionTime = 1700;
 var contentHomePageAppearTime = 2000; 
 var contentHomePageWaitTime = 500; 
 var aboutLinkTransitionTime = 500; 
