@@ -33,6 +33,7 @@ html, body{
     }
     overflow-x: hidden; 
 
+
     //Fixes change in font rendering for Safari
     -webkit-font-smoothing: subpixel-antialiased;
 
@@ -243,6 +244,7 @@ section{
     overflow: hidden;
     @media screen and (max-width: $break-m){
         overflow: visible; 
+        -webkit-overflow-scrolling: touch;
     }
     background-color: $light-color;  
         .project-info-title{
