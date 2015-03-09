@@ -1241,7 +1241,7 @@ function showAboutSection(bSetFromDOM){
                             bContentTransition = false; 
                             lastLocationHash = getLocationHash();
                             if ($(window).width() < breakM){
-                                $("body").css("overflow", "hidden"); 
+                                $("body").css("overflow-y", "hidden"); 
                             }
                             if (bSetFromDOM){
                                 bHashSetFromDOM = true; 
@@ -1262,7 +1262,6 @@ function showAboutSection(bSetFromDOM){
    
 
         }else{
-            // $(".text-container-wrapper").css("overflow", "visible"); 
             $("#about-link-close > div").animate(
                 {"opacity": "0.0"}, 
                 aboutLinkTransitionTime, 
@@ -1275,7 +1274,7 @@ function showAboutSection(bSetFromDOM){
                             bAboutSection = false; 
                             bContentTransition = false; 
                             if ($(window).width() < breakM){
-                                $("body").css("overflow", "visible"); 
+                                $("body").css("overflow-y", "visible"); 
                             }
                             if (bSetFromDOM){
                                 setLocationHash(lastLocationHash); 
