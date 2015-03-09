@@ -1641,7 +1641,7 @@ var bTouchScrolling = false;
 var scrollingStartX;
 var scrollingStartY;
 function handleTouchMove(event) {
-    if (!bProjectInfo){
+    if (!bProjectInfo || getLocationHash() === "About"){
         event.preventDefault();
     }
     var touches = event.changedTouches;
