@@ -5,7 +5,7 @@ var currentProjectImageId = 0;
 var contentTransitionTime = 1500;
 var imageTransitionTime = 1000;
 var contentHomePageAppearTime = 2000; 
-var contentHomePageWaitTime = 500; 
+var contentHomePageWaitTime = 300; 
 var aboutLinkTransitionTime = 500; 
 
 var bContentTransition = false; 
