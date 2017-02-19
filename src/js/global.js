@@ -15,8 +15,8 @@ var breakM = 1024;
 var breakL = 1824;
 
 
-
 var projects = [
+        {fileName: "../Solo.html", hash: "Solo", name: "SOLO - The Emotional Radio"},
         {fileName: "../CloningObjects.html", hash: "CloningObjects", name: "CLONING OBJECTS"},
         {fileName: "../PatchOfSky.html", hash: "PatchOfSky", name: "PATCH OF SKY"},
         {fileName: "../ProgrammingObjects.html", hash: "ProgrammingObjects", name: "PROGRAMMING OBJECTS"},
@@ -29,7 +29,6 @@ var aboutSection = {
     fileName: "../About.html",
     hash: "About",
 };
-
 
 
 $(function() {

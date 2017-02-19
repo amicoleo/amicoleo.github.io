@@ -1,37 +1,37 @@
-// $light-color: #F3F3F4; 
-$light-color: rgb(230, 230, 230); 
+// $light-color: #F3F3F4;
+$light-color: rgb(230, 230, 230);
 
-$dark-color: #0023E8; 
+$dark-color: #0023E8;
 $half-dark-color: rgba(0,35,232, 0.5) ;
 
 $break-s: 480px;
-$break-m: 1024px; 
+$break-m: 1024px;
 
-$menu-margin: 20px; 
-$img-footer-margin: 10px; 
+$menu-margin: 20px;
+$img-footer-margin: 10px;
 
-$body-font-size: 14px; 
-$body-line-height: 16px; 
+$body-font-size: 14px;
+$body-line-height: 16px;
 
 *::selection{
-    color: $light-color; 
-    background-color: $dark-color; 
+    color: $light-color;
+    background-color: $dark-color;
 }
 
 html, body{
-	height: 100%; 
-	width: 100%; 
-    background-color: $light-color; 
-    color: $dark-color; 
-    position: relative; 
+	height: 100%;
+	width: 100%;
+    background-color: $light-color;
+    color: $dark-color;
+    position: relative;
     font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
-    font-size: $body-font-size; 
-    line-height: $body-line-height; 
+    font-size: $body-font-size;
+    line-height: $body-line-height;
     @media screen and (max-width: $break-s){
-        font-size: $body-font-size*0.8; 
+        font-size: $body-font-size*0.8;
         line-height: $body-line-height*0.8;
     }
-    overflow-x: hidden; 
+    overflow-x: hidden;
 
 
     //Fixes change in font rendering for Safari
@@ -44,70 +44,70 @@ html, body{
 
 
 #container {
-    height: 100%; 
-	width: 100%; 
+    height: 100%;
+	width: 100%;
 }
 
 #bg-container{
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    height: 100%; 
-    width: 100%; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
 }
 
 #about-container{
-    height: 100%; 
-    width: 100%; 
-    position: absolute; 
-    top: -100%; 
-    // margin-top: -100vh; 
-    z-index: 101; 
-    background-color: $dark-color; 
-    color: $light-color; 
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: -100%;
+    // margin-top: -100vh;
+    z-index: 101;
+    background-color: $dark-color;
+    color: $light-color;
 
     p::selection, a::selection{
-        color: $dark-color; 
-        background-color: $light-color; 
+        color: $dark-color;
+        background-color: $light-color;
     }
 
 }
 
 
 
-a, a:visited, a:active, a:focus{ 
-    text-decoration: underline; 
+a, a:visited, a:active, a:focus{
+    text-decoration: underline;
     color: $dark-color;
 }
 a:hover {
-    text-decoration: none; 
+    text-decoration: none;
     color: $dark-color;
 }
 
 
 .nav-menu{
-    opacity: 0.0; 
+    opacity: 0.0;
     a{
-        display: inline; 
-        text-decoration: none; 
+        display: inline;
+        text-decoration: none;
         pointer-events: auto;
     }
     .disabled, .disabled:focus, .disabled:hover{
-        // display: none; 
-        text-decoration: line-through; 
+        // display: none;
+        text-decoration: line-through;
         pointer-events: none;
     }
 }
 
 section{
 	height: 100%;
-	width: 100%; 
-	
+	width: 100%;
+
 	/*relative to body*/
-	position: absolute; 
+	position: absolute;
 
 	/*background-color: rgba(255,255,0,1); */
-    z-index: 99; 
+    z-index: 99;
 }
 
 
@@ -118,16 +118,16 @@ section{
     left: 50%;
 
     transform: translateX(-50%) translateY(-50%);
-    z-index: 98; 
+    z-index: 98;
 
     //Text
-    width: 75%; 
-    text-align: center; 
-    font-size: $body-font-size*3; 
+    width: 75%;
+    text-align: center;
+    font-size: $body-font-size*3;
     @media screen and (max-width: $break-s){
         font-size: $body-font-size*2;
     }
-    
+
 }
 
 #background-logo-img{
@@ -135,49 +135,49 @@ section{
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-    z-index: 98; 
+    z-index: 98;
 
-    width: 30%; 
+    width: 30%;
     @media screen and (max-width: $break-s) and (orientation : portrait){
-        width: 60%; 
+        width: 60%;
     }
 }
 .viewport-section{
-	margin-left: 0%; 
+	margin-left: 0%;
 }
 
 .right-section{
-	margin-left: 110%; 
+	margin-left: 110%;
 }
 
 .left-section{
-	margin-left: -110%; 
+	margin-left: -110%;
 }
 
 .nav-menu{
 	position: fixed;
-	margin: $menu-margin; 
-    z-index: 100; 
-    max-width: 80%; 
+	margin: $menu-margin;
+    z-index: 100;
+    max-width: 80%;
     @media screen and (max-width: $break-m){
-        position: absolute; 
+        position: absolute;
     }
     #project-name{
-        text-transform: uppercase; 
+        text-transform: uppercase;
     }
 }
 
 
 #right-side{
-    right: 0; 
+    right: 0;
     text-align: center;
 
     a{
-        // padding-left: 10px; 
-        // padding-right: 10px; 
+        // padding-left: 10px;
+        // padding-right: 10px;
         div {
-            padding: 10px; 
-            margin: -10px; 
+            padding: 10px;
+            margin: -10px;
         }
     }
 }
@@ -185,79 +185,79 @@ section{
 /* Project template file */
 .project-container {
     position: relative;
-    // padding-top: 20%; 
-    width: 100%; 
-    height: 100%; 
+    // padding-top: 20%;
+    width: 100%;
+    height: 100%;
 }
 
 .viewport-section#project-images{
-    // visibility: hidden; 
-    // opacity: 0.0; 
-    
+    // visibility: hidden;
+    // opacity: 0.0;
+
 }
 
 .img-project-container{
-    position: absolute; 
-    width: 60%; 
-    height: 75%; 
+    position: absolute;
+    width: 60%;
+    height: 75%;
     @media screen and (max-width: $break-m){
-        width: 90%; 
+        width: 90%;
     }
     top: 58%;
     left: 50%;
-    transform: translateY(-50%) translateX(-50%); 
+    transform: translateY(-50%) translateX(-50%);
     .img-container{
         position: relative;
-        height: 80%; 
-        width: 100%; 
+        height: 80%;
+        width: 100%;
         max-height: 550px;
     }
 
     img{
         position: absolute;
-        height: 100%; 
+        height: 100%;
         left: 50%;
-        transform: translateX(-50%); 
-        opacity: 0.0; 
-        visibility: hidden; 
+        transform: translateX(-50%);
+        opacity: 0.0;
+        visibility: hidden;
     }
 
     .img-footer{
-        padding: $img-footer-margin; 
-        height: 10%; 
+        padding: $img-footer-margin;
+        height: 10%;
         text-align: center;
-    }    
+    }
 }
 
 
 .viewport-section#project-info{
-    visibility: hidden; 
-    opacity: 0.0; 
+    visibility: hidden;
+    opacity: 0.0;
 }
 
 .text-container-wrapper{
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    height: 100%; 
-    width: 100%; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
     overflow: hidden;
     @media screen and (max-width: $break-m){
-        overflow: visible; 
+        overflow: visible;
         -webkit-overflow-scrolling: touch;
     }
-    background-color: $light-color;  
+    background-color: $light-color;
         .project-info-title{
-            text-transform: uppercase; 
+            text-transform: uppercase;
             text-align: center;
 
         }
         @media screen and (max-width: $break-m){
-            height: 80%; 
+            height: 80%;
             top: 100px + $menu-margin; //Hardcoded with height of vertical ABOUT link
         }
         @media screen and (max-width: $break-s){
-            top: 64px + $menu-margin; 
+            top: 64px + $menu-margin;
         }
 
 }
@@ -265,80 +265,80 @@ section{
 .text-container{
     position: absolute;
     left: 50%;
-    transform: translateX(-50%); 
-    width: 40%; 
-    padding: 0; 
-    padding-top: $menu-margin; 
+    transform: translateX(-50%);
+    width: 40%;
+    padding: 0;
+    padding-top: $menu-margin;
     padding-bottom: $menu-margin;
     @media screen and (max-width: $break-m){
-        width: 80%; 
+        width: 80%;
     }
     @media screen and (max-width: $break-s){
-        width: 100%;  
+        width: 100%;
         padding-left: $menu-margin;
         padding-right: $menu-margin;
-        padding-top: 0; 
-        // top: 10%; 
+        padding-top: 0;
+        // top: 10%;
     }
-}    
+}
 
 #about-container{
     .nav-menu{
         position: absolute;
-        margin: $menu-margin; 
-        z-index: 103; 
-        max-width: 80%; 
+        margin: $menu-margin;
+        z-index: 103;
+        max-width: 80%;
 
     }
     #about-link-close{
-        color: $light-color; 
+        color: $light-color;
         div {
-            opacity: 0.0; 
+            opacity: 0.0;
         }
-        
+
     }
     .project-container{
-        background-color: $dark-color;  
-        color: $light-color; 
+        background-color: $dark-color;
+        color: $light-color;
         .text-container{
             top: 50%;
-            left: 50%; 
+            left: 50%;
             transform: translateY(-50%) translateX(-50%);
         }
     }
 
-    a, a:visited, a:active, a:focus, a:hover{ 
-        color: $light-color; 
+    a, a:visited, a:active, a:focus, a:hover{
+        color: $light-color;
     }
 
     // #contact-links{
-    //     text-align: center; 
+    //     text-align: center;
     // }
 }
 
 
 .additional-section .text-container{
-    opacity: 1.0; 
+    opacity: 1.0;
 }
 
 
 // Scrollbar
 .ps-scrollbar-y-rail{
     position: absolute;
-    right: 0px; 
+    right: 0px;
     width: 8px;
-    height: 100%; 
-    background-color: $half-dark-color; 
-    top: 0; 
+    height: 100%;
+    background-color: $half-dark-color;
+    top: 0;
 
 
     .ps-scrollbar-y {
-        top: 0; 
+        top: 0;
         right: 0; /* there must be 'right' for ps-scrollbar-y */
         width: 8px;
         position: absolute;
-        height: 100%; 
-        background-color: $dark-color; 
+        height: 100%;
+        background-color: $dark-color;
     }
 }
 
@@ -355,5 +355,3 @@ iframe {
   height: 0;
   padding-bottom: 51%;
 }
-
-
