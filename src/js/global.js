@@ -16,6 +16,7 @@ var breakL = 1824;
 
 
 var projects = [
+        {fileName: "../Scout.html", hash: "Scout", name: "SCOUT"},
         {fileName: "../Solo.html", hash: "Solo", name: "SOLO - The Emotional Radio"},
         {fileName: "../CloningObjects.html", hash: "CloningObjects", name: "CLONING OBJECTS"},
         {fileName: "../PatchOfSky.html", hash: "PatchOfSky", name: "PATCH OF SKY"},
